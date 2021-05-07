@@ -14,6 +14,14 @@ This project extends the functionality and user interaction of Bittle. It can al
 
 Only Qt5 is needed. No need to install any third-party libraries. You can clone this repository and build it on your local machine.
 
+**Qt Official Website**
+
+https://www.qt.io/
+
+**Getting start with Qt**
+
+https://resources.qt.io/development-topic-getting-started-with-qt
+
 # Instructions on the current UI
 
 ## Change Language
