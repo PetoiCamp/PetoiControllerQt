@@ -18,6 +18,7 @@ void MainWindow::bindQtSlots() {
 
     /// terminal ///
     connect(ui->buttonSendCmd, SIGNAL(clicked(bool)), this, SLOT(onTerminalCmd()));
+    connect(ui->lineCmd, SIGNAL(editingFinished()), this, SLOT(onTerminalEnterPressed()));
 
     /// motions and postures ///
     connect(ui->buttonPosBackFlip, SIGNAL(clicked(bool)), this, SLOT(onPosBackFlip()));
@@ -32,6 +33,9 @@ void MainWindow::bindQtSlots() {
     connect(ui->buttonPosSleep, SIGNAL(clicked(bool)), this, SLOT(onPosSleep()));
     connect(ui->buttonPosStepping, SIGNAL(clicked(bool)), this, SLOT(onPosStepping()));
     connect(ui->buttonPosStretch, SIGNAL(clicked(bool)), this, SLOT(onPosStretch()));
+
+    /// language selected ///
+    connect(ui->boxLanguage, SIGNAL(currentIndexChanged(int)), this, SLOT(onLanguageSelected()));
 }
 
 
@@ -118,6 +122,11 @@ void MainWindow::onSerialConnection() {
 
         // bind textbrowser
         uiSerialHandler.bindFeedbackTextview(ui->textTerminalOutput);
+
+        // switch widgets' status
+        isSerialOn = isActionsOn = true;
+        switchSerial();
+        switchActions();
     }
 
     else if (ui->buttonConnect->text() == tr("Disconnect")) {
@@ -130,6 +139,11 @@ void MainWindow::onSerialConnection() {
 
         // unbind textbrowser
         uiSerialHandler.unbindFeedbackTextview();
+
+        // switch widgets' status
+        isSerialOn = isActionsOn = false;
+        switchSerial();
+        switchActions();
     }
 }
 
@@ -140,8 +154,20 @@ void MainWindow::onTerminalCmd() {
 }
 
 
+void MainWindow::onTerminalEnterPressed()
+{
+    if (ui->lineCmd->hasFocus()) {
+        uiSerialHandler.sendCmdViaSerialPort(ui->lineCmd->text());
+        ui->lineCmd->clear();
+    }
+}
+
+
 void MainWindow::onCalibStart() {
    uiSerialHandler.sendCmdViaSerialPort("c");
+
+   isCalibrationOn = true;
+   switchCalibration();
 }
 
 
@@ -159,6 +185,9 @@ void MainWindow::onDecreaseCalib() {
 
 void MainWindow::onSaveCalib() {
     uiSerialHandler.sendCmdViaSerialPort("s");
+
+    isCalibrationOn = false;
+    switchCalibration();
 }
 
 
@@ -274,3 +303,17 @@ void MainWindow::onPosStepping() {
         uiMotionControl.stopKeyListen();
     }
 };
+
+
+void MainWindow::onLanguageSelected() {
+
+    QString language = ui->boxLanguage->currentText();
+
+    if (language == "Chinese") {
+        onShowAsChn();
+    }
+
+    if (language == "English") {
+        onShowAsEng();
+    }
+}

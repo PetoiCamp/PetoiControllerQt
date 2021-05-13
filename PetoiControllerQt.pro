@@ -19,8 +19,8 @@ SOURCES += \
     src/Config/JsonHandler.cpp \
     src/Config/SerialConnectionPreference.cpp \
     src/DataPacket/DataPacketHandler.cpp \
-    src/MainWindow.cpp \
     src/MainWindow_apx.cpp \
+    src/MainWindow_ui.cpp \
     src/Serial/QSerialMessageQueue.cpp \
     src/Serial/RawMessage.cpp \
     src/UiCalibrationCheck.cpp \

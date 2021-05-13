@@ -23,7 +23,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>PetoiSerialApp</string>
+   <string>PetoiControllerQt</string>
   </property>
   <property name="windowIcon">
    <iconset resource="resources.qrc">
@@ -40,7 +40,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tabSerial">
      <attribute name="title">
@@ -322,7 +322,7 @@
          </size>
         </property>
         <property name="text">
-         <string>Start</string>
+         <string>Calibration</string>
         </property>
        </widget>
        <widget class="QComboBox" name="boxSteering">

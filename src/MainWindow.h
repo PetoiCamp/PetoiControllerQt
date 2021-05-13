@@ -1,7 +1,10 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+/// Qt libraries ///
 #include <QMainWindow>
+#include <QTranslator>
+
 
 #include "UiSerialHandler.h"
 #include "UiCalibrationCheck.h"
@@ -18,9 +21,20 @@ class MainWindow : public QMainWindow
 
 private:
     Ui::MainWindow*     ui;
+    QTranslator         translator;
+    QMenu               *fileMenu;
+    QMenu               *fileLinguistMenu;
+
+    QAction             *chineseTypeAct;
+    QAction             *englishTypeAct;
+    QAction             *exitAct;
+
+    bool                isSerialOn;
+    bool                isCalibrationOn;
+    bool                isActionsOn;
 
 public:
-    static UiSerialHandler      uiSerialHandler;    // handler for serial connection and message send/recv
+    static UiSerialHandler      uiSerialHandler;
     static UiCalibrationCheck   uiCalibration;
     static UiMotionControl      uiMotionControl;
 
@@ -44,6 +58,7 @@ public slots:
 
     /// terminal ///
     void onTerminalCmd();
+    void onTerminalEnterPressed();
 
     /// motions and postures ///
     void onPosButtomUp();
@@ -59,7 +74,58 @@ public slots:
     void onPosBunnyJump();
     void onPosStepping();
 
+    /// language selection ///
+    void onLanguageSelected();
+
+protected slots:
+
+    /**
+     * @brief onFileExit
+     */
+    void onFileExit();
+
+    /**
+     * @brief onFileShowAsChn
+     */
+    void onShowAsChn();
+
+    /**
+     * @brief onFileShowAsEng
+     */
+    void onShowAsEng();
+
 private:
+
+    /**
+     * @brief serialSwitch
+     */
+    void switchSerial();
+
+    /**
+     * @brief actionsSwitch
+     */
+    void switchCalibration();
+
+    /**
+     * @brief terminalSwitch
+     */
+    void switchActions();
+
+    /**
+     * @brief setupLanguages
+     */
+    void setupLanguages();
+
+    /**
+     *  @brief setupMenus
+     */
+    void setupMenus();
+
+    /**
+     * @brief translateUi
+     * @param package
+     */
+    void translateUi(QString package);
 
     /**
      * @brief setupWidgets
