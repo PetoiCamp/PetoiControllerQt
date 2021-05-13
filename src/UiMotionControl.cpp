@@ -192,6 +192,8 @@ void UiMotionControl::usbDevicesEventCheck() {
             break;
 
         default:
+            qDebug() << "status: balance";
+            MainWindow::uiSerialHandler.sendCmdViaSerialPort("kbalance");
             break;
         }
 
@@ -224,47 +226,35 @@ void UiMotionControl::procQtKeyPressedEvent(QKeyEvent* key) {
 
     switch(key->key()) {
     case Qt::Key_W:
-//        qDebug() << "pressed W";
         moveFront = true;
         moveBack = false;
         break;
 
     case Qt::Key_S:
-//        qDebug() << "pressed S";
         moveBack = true;
         moveFront = false;
         break;
 
     case Qt::Key_A:
-//        qDebug() << "pressed A";
         moveLeft = true;
         moveRight = false;
         break;
 
     case Qt::Key_D:
-//        qDebug() << "pressed D";
         moveRight = true;
         moveLeft = false;
         break;
 
-    case Qt::Key_U: // normal
+    case Qt::Key_1: // normal
         crawlActivated = runActivated = false;
-        qDebug() << "pressed U for normal";
         break;
 
-    case Qt::Key_I: // run
-        qDebug() << "pressed I for runing";
+    case Qt::Key_2: // run
         runActivated = true;
         break;
 
-    case Qt::Key_O: // crawl
-        qDebug() << "pressed O for crawling";
+    case Qt::Key_3: // crawl
         crawlActivated = true;
-        break;
-
-    case Qt::Key_Backspace:
-        qDebug() << "pressed backspace";
-        motionStatus = STATUS_READY;
         break;
 
     default:
@@ -278,22 +268,18 @@ void UiMotionControl::procQtKeyReleasedEvent(QKeyEvent* key) {
     switch(key->key()) {
      case Qt::Key_W:
          moveFront = false;
-//         qDebug() << "released up";
          break;
 
      case Qt::Key_S:
          moveBack = false;
-//         qDebug() << "released down";
          break;
 
      case Qt::Key_A:
          moveLeft = false;
-//         qDebug() << "released left";
          break;
 
      case Qt::Key_D:
          moveRight = false;
-//         qDebug() << "released right";
          break;
 
      default:

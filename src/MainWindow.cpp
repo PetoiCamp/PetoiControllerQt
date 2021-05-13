@@ -82,7 +82,7 @@ void MainWindow::keyPressEvent(QKeyEvent *event) {
         uiSerialHandler.sendCmdViaSerialPort("d");
         break;
 
-    case Qt::Key_Space:
+    case Qt::Key_Backspace:
         qDebug() << "keep balance...";
         uiSerialHandler.sendCmdViaSerialPort("kbalance");
         break;
@@ -91,9 +91,10 @@ void MainWindow::keyPressEvent(QKeyEvent *event) {
     case Qt::Key_S:  // backward
     case Qt::Key_A:  // left
     case Qt::Key_D:  // right
-    case Qt::Key_U:  // normal
-    case Qt::Key_I:  // run
-    case Qt::Key_O:  // crawl
+    case Qt::Key_1:  // normal
+    case Qt::Key_2:  // run
+    case Qt::Key_3:  // crawl
+
         if (!uiMotionControl.isKeyListeningOn()) {
             uiMotionControl.startKeyListen();
         }
