@@ -121,7 +121,7 @@ void UiCalibrationCheck::setupServosSelections(QComboBox *combox) {
 
 void UiCalibrationCheck::setupIllustration(QGraphicsView *view) {
     view->setScene(QtBasics::loadImageFromRes(
-                       ":/app/pic/illustration.png",
+                       ":/app/pic/res/illustration.png",
                         view->width(),
                         view->height(),
                         Qt::AspectRatioMode::KeepAspectRatio));

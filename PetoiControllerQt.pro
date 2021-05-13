@@ -20,6 +20,7 @@ SOURCES += \
     src/Config/SerialConnectionPreference.cpp \
     src/DataPacket/DataPacketHandler.cpp \
     src/MainWindow.cpp \
+    src/MainWindow_apx.cpp \
     src/Serial/QSerialMessageQueue.cpp \
     src/Serial/RawMessage.cpp \
     src/UiCalibrationCheck.cpp \

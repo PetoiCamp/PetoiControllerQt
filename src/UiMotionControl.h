@@ -84,6 +84,21 @@ public:
      */
     void procQtKeyReleasedEvent(QKeyEvent* key);
 
+    /**
+     * @brief startKeyListen
+     */ 
+    void startKeyListen();
+
+    /**
+     * @brief stopKeyListen
+     */ 
+    void stopKeyListen();
+
+    /**
+     * @brief isKeyListeningOn
+     */
+    bool isKeyListeningOn();
+
 private:
 
     /**

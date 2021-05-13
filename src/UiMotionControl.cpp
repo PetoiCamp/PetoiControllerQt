@@ -6,16 +6,7 @@
 
 UiMotionControl::UiMotionControl(QObject *parent) :
     QObject(parent),
-    timer() {
-
-    // connect timer signal/slot
-    connect(&timer, SIGNAL(timeout()), this, SLOT(usbDevicesEventCheck()));
-
-    // start to listen usb devices events
-    if (!timer.isActive()) {
-        timer.start(REPEAT_MILLISECONDS);
-    }
-}
+    timer() {}
 
 
 UiMotionControl::~UiMotionControl() {};
@@ -133,6 +124,7 @@ int UiMotionControl::updateMotionStatus() {
 
 
 void UiMotionControl::usbDevicesEventCheck() {
+
     if (motionStatus == updateMotionStatus()) {// nothing have changed
         return;
     } else {
@@ -140,68 +132,66 @@ void UiMotionControl::usbDevicesEventCheck() {
         switch (updated) {
 
         case STATUS_CRAWL_FORWARD:
-            qDebug() << "status: kcrF";
+            qDebug() << "status: crawl forward";
             MainWindow::uiSerialHandler.sendCmdViaSerialPort("kcrF");
             break;
 
         case STATUS_CRAWL_BACKWARD:
-            qDebug() << "status: kbk";
+            qDebug() << "status: backward";
             MainWindow::uiSerialHandler.sendCmdViaSerialPort("kbk");
             break;
 
         case STATUS_CRAWL_LEFT:
-            qDebug() << "status: kcrL";
+            qDebug() << "status: crawl left";
             MainWindow::uiSerialHandler.sendCmdViaSerialPort("kcrL");
             break;
 
         case STATUS_CRAWL_RIGHT:
-            qDebug() << "status: kcrR";
+            qDebug() << "status: crawl right";
             MainWindow::uiSerialHandler.sendCmdViaSerialPort("kcrR");
             break;
 
         case STATUS_RUN_FORWARD:
-            qDebug() << "status: ktrF";
+            qDebug() << "status: run forward";
             MainWindow::uiSerialHandler.sendCmdViaSerialPort("ktrF");
             break;
 
         case STATUS_RUN_BACKWARD:
-            qDebug() << "status: kbk";
+            qDebug() << "status: backward";
             MainWindow::uiSerialHandler.sendCmdViaSerialPort("kbk");
             break;
 
         case STATUS_RUN_LEFT:
-            qDebug() << "status: ktrL";
+            qDebug() << "status: run left";
             MainWindow::uiSerialHandler.sendCmdViaSerialPort("ktrL");
             break;
 
         case STATUS_RUN_RIGHT:
-            qDebug() << "status: ktrR";
+            qDebug() << "status: run right";
             MainWindow::uiSerialHandler.sendCmdViaSerialPort("ktrR");
             break;
 
         case STATUS_NORMAL_FORWARD:
-            qDebug() << "status: kwkF";
+            qDebug() << "status: forward";
             MainWindow::uiSerialHandler.sendCmdViaSerialPort("kwkF");
             break;
 
         case STATUS_NORMAL_BACKWARD:
-            qDebug() << "status: kbk";
+            qDebug() << "status: backward";
             MainWindow::uiSerialHandler.sendCmdViaSerialPort("kbk");
             break;
 
         case STATUS_NORMAL_LEFT:
-            qDebug() << "status: kwkL";
+            qDebug() << "status: left";
             MainWindow::uiSerialHandler.sendCmdViaSerialPort("kwkL");
             break;
 
         case STATUS_NORMAL_RIGHT:
-            qDebug() << "status: kwkR";
+            qDebug() << "status: right";
             MainWindow::uiSerialHandler.sendCmdViaSerialPort("kwkR");
             break;
 
         default:
-            qDebug() << "status: kbalance";
-            MainWindow::uiSerialHandler.sendCmdViaSerialPort("kbalance");
             break;
         }
 
@@ -210,55 +200,71 @@ void UiMotionControl::usbDevicesEventCheck() {
 }
 
 
+void UiMotionControl::startKeyListen() {
+    // connect timer signal/slot
+    connect(&timer, SIGNAL(timeout()), this, SLOT(usbDevicesEventCheck()));
+    qDebug() << "Start motion control...";
+    if (!timer.isActive()) { timer.start(REPEAT_MILLISECONDS); }
+}
+
+
+void UiMotionControl::stopKeyListen() {
+    if (timer.isActive()) { timer.stop(); }
+    qDebug() << "Stop motion control...";
+    disconnect(&timer, SIGNAL(timeout()), this, SLOT(usbDevicesEventCheck()));
+}
+
+
+bool UiMotionControl::isKeyListeningOn() {
+    return timer.isActive();
+}
+
+
 void UiMotionControl::procQtKeyPressedEvent(QKeyEvent* key) {
+
     switch(key->key()) {
     case Qt::Key_W:
-        qDebug() << "pressed W";
+//        qDebug() << "pressed W";
         moveFront = true;
         moveBack = false;
         break;
 
     case Qt::Key_S:
-        qDebug() << "pressed S";
+//        qDebug() << "pressed S";
         moveBack = true;
         moveFront = false;
         break;
 
     case Qt::Key_A:
-        qDebug() << "pressed A";
+//        qDebug() << "pressed A";
         moveLeft = true;
         moveRight = false;
         break;
 
     case Qt::Key_D:
-        qDebug() << "pressed D";
+//        qDebug() << "pressed D";
         moveRight = true;
         moveLeft = false;
         break;
 
     case Qt::Key_U: // normal
         crawlActivated = runActivated = false;
-        qDebug() << "pressed U";
+        qDebug() << "pressed U for normal";
         break;
 
     case Qt::Key_I: // run
-        qDebug() << "pressed shift";
+        qDebug() << "pressed I for runing";
         runActivated = true;
         break;
 
     case Qt::Key_O: // crawl
-        qDebug() << "pressed control";
+        qDebug() << "pressed O for crawling";
         crawlActivated = true;
         break;
 
     case Qt::Key_Backspace:
         qDebug() << "pressed backspace";
         motionStatus = STATUS_READY;
-        break;
-
-    case Qt::Key_G:
-        qDebug() << "pressed G";
-        MainWindow::uiSerialHandler.sendCmdViaSerialPort("g");
         break;
 
     default:
@@ -268,25 +274,26 @@ void UiMotionControl::procQtKeyPressedEvent(QKeyEvent* key) {
 
 
 void UiMotionControl::procQtKeyReleasedEvent(QKeyEvent* key) {
+
     switch(key->key()) {
      case Qt::Key_W:
          moveFront = false;
-         qDebug() << "released up";
+//         qDebug() << "released up";
          break;
 
      case Qt::Key_S:
          moveBack = false;
-         qDebug() << "released down";
+//         qDebug() << "released down";
          break;
 
      case Qt::Key_A:
          moveLeft = false;
-         qDebug() << "released left";
+//         qDebug() << "released left";
          break;
 
      case Qt::Key_D:
          moveRight = false;
-         qDebug() << "released right";
+//         qDebug() << "released right";
          break;
 
      default:

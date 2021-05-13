@@ -45,12 +45,6 @@ public slots:
     /// terminal ///
     void onTerminalCmd();
 
-    /// panel ///
-    void onPanelBalance();
-    void onPanelRecovery();
-    void onPanelGyro();
-    void onPanelServos();
-
     /// motions and postures ///
     void onPosButtomUp();
     void onPosCheckAround();
