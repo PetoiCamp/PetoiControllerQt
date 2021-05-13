@@ -28,11 +28,11 @@ https://resources.qt.io/development-topic-getting-started-with-qt
 
 The default interface is in Chinese.
 
-![Default UI](./res/DefaultSerialConnection.png)
+![Default UI](./pics/DefaultSerialConnection.png)
 
 You can switch to English by clicking **File/Language/English** from the menu.
 
-![Change Language Supports](./res/ChangeLanguageSupports.png)
+![Change Language Supports](./pics/ChangeLanguageSupports.png)
 
 ## Connect to Bittle
 
@@ -42,7 +42,7 @@ Click the **Refresh** button, let the app search the available serial ports on y
 
 After 1~2 seconds, you will see a list of the available **Serial Ports**.
 
-![Selector](./res/Selector.png)
+![Selector](./pics/Selector.png)
 
 The other configurations, such as baud rate, stop bits, data bits and parity should remain default. You don't need to modify their values. 
 
@@ -62,7 +62,7 @@ Whether you use the USB module or the Bluetooth module, the items in the "Port N
 
 After connecting to the port, the main program will reset and play the booting music. Some message will be printed in the textbox, meaning you have successly connected to Bittle.
 
-![Success](./res/SuccessConnect.png)
+![Success](./pics/SuccessConnect.png)
 
 ## Calibration
 
@@ -70,13 +70,13 @@ Before you play with Bittle, one important thing you have to do is calibration.
 
 Click the **Start** button to enter the Calibration mode. The app needs a few seconds to communicate with Bittle and get its servos' calibration angles.
 
-![Calibration](./res/Calibration.png)
+![Calibration](./pics/Calibration.png)
 
 After you've seen the output as shown in the above picture, you need to click the **Read** button to get the saved calibration values from Bittle.
 
 Make sure every servo is in the right position. You can use the L- shaped ruler to help you calibrate. The servos on Bittle are indexed as shown on the right side of this app.
 
-![Do calibration](./res/DoCalibration.png)
+![Do calibration](./pics/DoCalibration.png)
 
 After calibrating all the servos, remember to click the **Save** button to save the updated angles and the app will synchronize with Bittle.
 
@@ -84,7 +84,7 @@ After calibrating all the servos, remember to click the **Save** button to save 
 
 You only need to calibrate Bittle for once. Next time, you can just click the **Action** tab.
 
-![Actions](./res/Actions.png)
+![Actions](./pics/Actions.png)
 
 Now you can play with Bittle with actions show above.
 

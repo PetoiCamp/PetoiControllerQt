@@ -1,10 +1,10 @@
 <RCC>
     <qresource prefix="/app/pic">
-        <file>illustration.png</file>
+        <file>res/illustration.png</file>
         <file>logo.icns</file>
     </qresource>
     <qresource prefix="/">
-        <file>English.qm</file>
-        <file>Chinese.qm</file>
+        <file>res/English.qm</file>
+        <file>res/Chinese.qm</file>
     </qresource>
 </RCC>
