@@ -1,4 +1,4 @@
-ICON_FILE=$1
+ICON_FILE=res/logo.png
 
 mkdir logo.iconset
 
@@ -20,4 +20,8 @@ sips -z 256 256 $ICON_FILE --out logo.iconset/icon_256@2x.png
 sips -z 512 512 $ICON_FILE --out logo.iconset/icon_512.png
 sips -z 512 512 $ICON_FILE --out logo.iconset/icon_512@2x.png
 
-iconutil -c icns logo.iconset
+
+if [ -d logo.iconset ]; then
+    iconutil -c icns logo.iconset
+    rm -rf logo.iconset
+fi
