@@ -6,7 +6,7 @@
     <message>
         <location filename="mainwindow.ui" line="26"/>
         <source>PetoiControllerQt</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="47"/>
@@ -16,7 +16,7 @@
     <message>
         <location filename="mainwindow.ui" line="69"/>
         <source>Serial Connection</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="88"/>
@@ -84,7 +84,7 @@
     <message>
         <location filename="mainwindow.ui" line="401"/>
         <source>Terminal</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="440"/>
@@ -99,7 +99,7 @@
     <message>
         <location filename="mainwindow.ui" line="466"/>
         <source>Default Actions</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="483"/>
@@ -164,7 +164,7 @@
     <message>
         <location filename="mainwindow.ui" line="591"/>
         <source>Bittle Control</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="603"/>
