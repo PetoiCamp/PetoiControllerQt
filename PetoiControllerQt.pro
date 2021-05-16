@@ -16,6 +16,7 @@ CONFIG += c++11
 
 SOURCES += \
     src/CalibFeedbackProcedure.cpp \
+    src/Config/CustomCmdPreference.cpp \
     src/Config/JsonHandler.cpp \
     src/Config/SerialConnectionPreference.cpp \
     src/DataPacket/DataPacketHandler.cpp \
@@ -32,6 +33,7 @@ SOURCES += \
 HEADERS += \
     src/Basics/QtBasics.h \
     src/CalibFeedbackProcedure.h \
+    src/Config/CustomCmdPreference.h \
     src/Config/GlobalConfig.h \
     src/Config/JsonHandler.h \
     src/Config/SerialConnectionPreference.h \

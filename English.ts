@@ -5,7 +5,8 @@
     <name>MainWindow</name>
     <message>
         <location filename="mainwindow.ui" line="26"/>
-        <source>PetoiControllerQt</source>
+        <source>PetoiControllerQt v0.2.1a</source>
+        <oldsource>PetoiControllerQt</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -16,7 +17,7 @@
     <message>
         <location filename="mainwindow.ui" line="69"/>
         <source>Serial Connection</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="88"/>
@@ -45,8 +46,8 @@
     </message>
     <message>
         <location filename="mainwindow.ui" line="211"/>
-        <location filename="src/MainWindow_apx.cpp" line="102"/>
-        <location filename="src/MainWindow_apx.cpp" line="135"/>
+        <location filename="src/MainWindow_apx.cpp" line="104"/>
+        <location filename="src/MainWindow_apx.cpp" line="137"/>
         <source>Connect</source>
         <translation></translation>
     </message>
@@ -84,7 +85,7 @@
     <message>
         <location filename="mainwindow.ui" line="401"/>
         <source>Terminal</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="440"/>
@@ -99,7 +100,7 @@
     <message>
         <location filename="mainwindow.ui" line="466"/>
         <source>Default Actions</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="483"/>
@@ -164,7 +165,7 @@
     <message>
         <location filename="mainwindow.ui" line="591"/>
         <source>Bittle Control</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="603"/>
@@ -193,9 +194,25 @@ p, li { white-space: pre-wrap; }
         <translation></translation>
     </message>
     <message>
-        <location filename="src/MainWindow_apx.cpp" line="113"/>
-        <location filename="src/MainWindow_apx.cpp" line="132"/>
+        <location filename="src/MainWindow_apx.cpp" line="115"/>
+        <location filename="src/MainWindow_apx.cpp" line="134"/>
         <source>Disconnect</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="src/MainWindow_apx.cpp" line="179"/>
+        <location filename="src/MainWindow_apx.cpp" line="189"/>
+        <source>Unable to adjust fine angle!</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="src/MainWindow_apx.cpp" line="180"/>
+        <source>Because you have reached the maximum angle</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="src/MainWindow_apx.cpp" line="190"/>
+        <source>Because you have reached the minimum angle</source>
         <translation></translation>
     </message>
     <message>

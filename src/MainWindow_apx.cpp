@@ -3,6 +3,8 @@
 
 #include "Config/SerialConnectionPreference.h"
 
+#include <QMessageBox>
+
 
 void MainWindow::bindQtSlots() {
     /// serial connection ///
@@ -173,13 +175,21 @@ void MainWindow::onCalibStart() {
 
 void MainWindow::onIncreaseCalib() {
     int pos = ui->boxSteering->currentIndex();
-    uiCalibration.increaseCalibAngle(pos);
+    if(!uiCalibration.increaseCalibAngle(pos)) {
+        QMessageBox::critical(this, tr("Unable to adjust fine angle!"),
+                              tr("Because you have reached the maximum angle"),
+                              QMessageBox::Ok);
+    }
 }
 
 
 void MainWindow::onDecreaseCalib() {
     int pos = ui->boxSteering->currentIndex();
-    uiCalibration.decreaseCalibAngle(pos);
+    if (!uiCalibration.decreaseCalibAngle(pos)) {
+        QMessageBox::critical(this, tr("Unable to adjust fine angle!"),
+                              tr("Because you have reached the minimum angle"),
+                              QMessageBox::Ok);
+    }
 }
 
 

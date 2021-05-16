@@ -5,71 +5,72 @@
     <name>MainWindow</name>
     <message>
         <location filename="mainwindow.ui" line="26"/>
-        <source>PetoiControllerQt</source>
+        <source>PetoiControllerQt v0.2.1a</source>
+        <oldsource>PetoiControllerQt</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="47"/>
         <source>Serial</source>
-        <translation type="unfinished">串口连结</translation>
+        <translation>串口配置</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="69"/>
         <source>Serial Connection</source>
-        <translation type="unfinished"></translation>
+        <translation>串口连接</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="88"/>
         <source>Port Name</source>
-        <translation type="unfinished">端口号</translation>
+        <translation>串口号</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="109"/>
         <source>Baud Rate</source>
-        <translation type="unfinished">波特率</translation>
+        <translation>波特率</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="130"/>
         <source>Stop Bits</source>
-        <translation type="unfinished">停止位</translation>
+        <translation>停止位</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="151"/>
         <source>Data Bits</source>
-        <translation type="unfinished">数据位</translation>
+        <translation>数据位</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="172"/>
         <source>Parity</source>
-        <translation type="unfinished">奇偶校验</translation>
+        <translation>奇偶性</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="211"/>
-        <location filename="src/MainWindow_apx.cpp" line="102"/>
-        <location filename="src/MainWindow_apx.cpp" line="135"/>
+        <location filename="src/MainWindow_apx.cpp" line="104"/>
+        <location filename="src/MainWindow_apx.cpp" line="137"/>
         <source>Connect</source>
-        <translation type="unfinished">连结</translation>
+        <translation>连结</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="236"/>
         <source>Refresh</source>
-        <translation type="unfinished">刷新</translation>
+        <translation>刷新</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="250"/>
         <location filename="mainwindow.ui" line="325"/>
         <source>Calibration</source>
-        <translation type="unfinished">舵机校准</translation>
+        <translation>校准</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="278"/>
         <source>Clean</source>
-        <translation type="unfinished">清空</translation>
+        <translation>清零</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="295"/>
         <source>Save</source>
-        <translation type="unfinished">保存</translation>
+        <translation>保存</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="356"/>
@@ -84,87 +85,87 @@
     <message>
         <location filename="mainwindow.ui" line="401"/>
         <source>Terminal</source>
-        <translation type="unfinished"></translation>
+        <translation>控制台</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="440"/>
         <source>Send</source>
-        <translation type="unfinished">发送</translation>
+        <translation>发送</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="454"/>
         <source>Actions</source>
-        <translation type="unfinished">动作</translation>
+        <translation>动作</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="466"/>
         <source>Default Actions</source>
-        <translation type="unfinished"></translation>
+        <translation>默认动作</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="483"/>
         <source>Stretch</source>
-        <translation type="unfinished">伸展</translation>
+        <translation>伸展</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="490"/>
         <source>Hip Up</source>
-        <translation type="unfinished">撅屁股</translation>
+        <translation>撅屁股</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="497"/>
         <source>Look Around</source>
-        <translation type="unfinished">四周张望</translation>
+        <translation>四周张望</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="508"/>
         <source>Greeting</source>
-        <translation type="unfinished">打招呼</translation>
+        <translation>打招呼</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="515"/>
         <source>Pee</source>
-        <translation type="unfinished">撒尿</translation>
+        <translation>撒尿</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="522"/>
         <source>Pushup</source>
-        <translation type="unfinished">俯卧撑</translation>
+        <translation>俯卧撑</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="533"/>
         <source>Sit Down</source>
-        <translation type="unfinished">坐下</translation>
+        <translation>坐下</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="540"/>
         <source>Sleep</source>
-        <translation type="unfinished">睡觉</translation>
+        <translation>睡觉</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="547"/>
         <source>Rest</source>
-        <translation type="unfinished">休息</translation>
+        <translation>休息</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="558"/>
         <source>Stepping</source>
-        <translation type="unfinished">原地踏步</translation>
+        <translation>原地踏步</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="565"/>
         <source>Back Flip</source>
-        <translation type="unfinished">后空翻</translation>
+        <translation>后空翻</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="572"/>
         <source>Bunny Jump</source>
-        <translation type="unfinished">兔子跳</translation>
+        <translation>兔子跳</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="591"/>
         <source>Bittle Control</source>
-        <translation type="unfinished"></translation>
+        <translation>Bittle控制命令</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="603"/>
@@ -190,13 +191,29 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="mainwindow.ui" line="647"/>
         <source>Language</source>
-        <translation type="unfinished">语言选项</translation>
+        <translation>语言项</translation>
     </message>
     <message>
-        <location filename="src/MainWindow_apx.cpp" line="113"/>
-        <location filename="src/MainWindow_apx.cpp" line="132"/>
+        <location filename="src/MainWindow_apx.cpp" line="115"/>
+        <location filename="src/MainWindow_apx.cpp" line="134"/>
         <source>Disconnect</source>
-        <translation type="unfinished">断开连结</translation>
+        <translation>断开</translation>
+    </message>
+    <message>
+        <location filename="src/MainWindow_apx.cpp" line="179"/>
+        <location filename="src/MainWindow_apx.cpp" line="189"/>
+        <source>Unable to adjust fine angle!</source>
+        <translation>无法进一步精调舵机</translation>
+    </message>
+    <message>
+        <location filename="src/MainWindow_apx.cpp" line="180"/>
+        <source>Because you have reached the maximum angle</source>
+        <translation>你已经达到最大可调角度</translation>
+    </message>
+    <message>
+        <location filename="src/MainWindow_apx.cpp" line="190"/>
+        <source>Because you have reached the minimum angle</source>
+        <translation>你已经达到最小可调角度</translation>
     </message>
     <message>
         <location filename="src/MainWindow_ui.cpp" line="233"/>

@@ -1,6 +1,7 @@
 #include "RawMessage.h"
 #include <memory>
 #include <iostream>
+#include <memory.h>
 
 
 RawMessage::RawMessage(unsigned char* income, int len) {
