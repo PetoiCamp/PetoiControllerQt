@@ -5,8 +5,9 @@
     <name>MainWindow</name>
     <message>
         <location filename="mainwindow.ui" line="26"/>
-        <source>PetoiControllerQt</source>
-        <translation></translation>
+        <source>PetoiControllerQt v0.2.1a</source>
+        <oldsource>PetoiControllerQt</oldsource>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="47"/>
@@ -45,8 +46,8 @@
     </message>
     <message>
         <location filename="mainwindow.ui" line="211"/>
-        <location filename="src/MainWindow_apx.cpp" line="102"/>
-        <location filename="src/MainWindow_apx.cpp" line="135"/>
+        <location filename="src/MainWindow_apx.cpp" line="104"/>
+        <location filename="src/MainWindow_apx.cpp" line="137"/>
         <source>Connect</source>
         <translation></translation>
     </message>
@@ -193,9 +194,25 @@ p, li { white-space: pre-wrap; }
         <translation></translation>
     </message>
     <message>
-        <location filename="src/MainWindow_apx.cpp" line="113"/>
-        <location filename="src/MainWindow_apx.cpp" line="132"/>
+        <location filename="src/MainWindow_apx.cpp" line="115"/>
+        <location filename="src/MainWindow_apx.cpp" line="134"/>
         <source>Disconnect</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="src/MainWindow_apx.cpp" line="179"/>
+        <location filename="src/MainWindow_apx.cpp" line="189"/>
+        <source>Unable to adjust fine angle!</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="src/MainWindow_apx.cpp" line="180"/>
+        <source>Because you have reached the maximum angle</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="src/MainWindow_apx.cpp" line="190"/>
+        <source>Because you have reached the minimum angle</source>
         <translation></translation>
     </message>
     <message>

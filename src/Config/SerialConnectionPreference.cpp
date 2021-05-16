@@ -27,7 +27,9 @@ void preProcessHandler(JsonHandler& handler) {
 
         // create an empty file
         QtBasics::touch(preference);
-        handler.from_json("{}");
+
+        // with default configuration
+        handler.from_json("{ \"port_name\": 0, \"baud_rate\": 7, \"parity\": 0, \"data_bits\": 3, \"stop_bits\": 0 }");
     }
 }
 
