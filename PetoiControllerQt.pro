@@ -16,7 +16,6 @@ CONFIG += c++11
 
 SOURCES += \
     src/CalibFeedbackProcedure.cpp \
-    src/Config/CustomCmdPreference.cpp \
     src/Config/GlobalConfig.cpp \
     src/Config/JsonHandler.cpp \
     src/Config/SerialConnectionPreference.cpp \
@@ -26,6 +25,7 @@ SOURCES += \
     src/Serial/QSerialMessageQueue.cpp \
     src/Serial/RawMessage.cpp \
     src/UiCalibrationCheck.cpp \
+    src/UiCustomActions.cpp \
     src/UiMotionControl.cpp \
     src/UiSerialHandler.cpp \
     src/main.cpp \
@@ -34,7 +34,6 @@ SOURCES += \
 HEADERS += \
     src/Basics/QtBasics.h \
     src/CalibFeedbackProcedure.h \
-    src/Config/CustomCmdPreference.h \
     src/Config/GlobalConfig.h \
     src/Config/JsonHandler.h \
     src/Config/SerialConnectionPreference.h \
@@ -82,6 +81,7 @@ HEADERS += \
     src/Serial/QSerialMessageQueue.h \
     src/Serial/RawMessage.h \
     src/UiCalibrationCheck.h \
+    src/UiCustomActions.h \
     src/UiMotionControl.h \
     src/UiSerialHandler.h
 

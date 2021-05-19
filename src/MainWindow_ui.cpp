@@ -9,6 +9,8 @@
 UiSerialHandler     MainWindow::uiSerialHandler;    // handler for serial connection and message send/recv
 UiCalibrationCheck  MainWindow::uiCalibration;      // calibration
 UiMotionControl     MainWindow::uiMotionControl;    // default actions
+UiCustomActions     MainWindow::uiCustomActions;    // user-defined action or command
+
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -22,8 +24,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
     // setup ui
     setupWidgets();
-
-    qApp;
 }
 
 
@@ -47,7 +47,7 @@ void MainWindow::setupWidgets() {
                 ui->boxStopBits);
 
     // change to those selections to default
-    SerialConnectionPreference::getPreferences(
+    SerialConnectionPreference::getPreference(
                 ui->boxPortNumber,
                 ui->boxBaudRate,
                 ui->boxParity,
@@ -61,6 +61,9 @@ void MainWindow::setupWidgets() {
     // setup illustration
     uiCalibration.setupIllustration(
                 ui->viewBittleIllustration);
+
+    // setup custom actions/commands panel
+    uiCustomActions.setupWidgets(ui->tableCustomActions);
 
     // init menu
     setupMenus();

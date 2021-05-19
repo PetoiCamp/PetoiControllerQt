@@ -627,7 +627,7 @@ p, li { white-space: pre-wrap; }
       <property name="title">
        <string>Custom Commands</string>
       </property>
-      <widget class="QTableView" name="tableView">
+      <widget class="QTableView" name="tableCustomActions">
        <property name="geometry">
         <rect>
          <x>30</x>
@@ -648,14 +648,14 @@ p, li { white-space: pre-wrap; }
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_2">
         <item>
-         <widget class="QPushButton" name="pushButton">
+         <widget class="QPushButton" name="buttonCmdAdd">
           <property name="text">
            <string>New</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButton_2">
+         <widget class="QPushButton" name="buttonCmdDel">
           <property name="text">
            <string>Delete</string>
           </property>

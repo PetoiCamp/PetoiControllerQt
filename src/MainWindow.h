@@ -5,7 +5,7 @@
 #include <QMainWindow>
 #include <QTranslator>
 
-
+#include "UiCustomActions.h"
 #include "UiSerialHandler.h"
 #include "UiCalibrationCheck.h"
 #include "UiMotionControl.h"
@@ -37,6 +37,7 @@ public:
     static UiSerialHandler      uiSerialHandler;
     static UiCalibrationCheck   uiCalibration;
     static UiMotionControl      uiMotionControl;
+    static UiCustomActions      uiCustomActions;
 
 public:
     explicit MainWindow(QWidget *parent = nullptr);

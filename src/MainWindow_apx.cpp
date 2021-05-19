@@ -91,7 +91,7 @@ void MainWindow::onSerialRefresh() {
                 ui->boxStopBits);
 
     // set selections to default
-    SerialConnectionPreference::getPreferences(
+    SerialConnectionPreference::getPreference(
                 ui->boxPortNumber,
                 ui->boxBaudRate,
                 ui->boxParity,
@@ -104,7 +104,7 @@ void MainWindow::onSerialConnection() {
     if (ui->buttonConnect->text() == tr("Connect")) {
 
         // save selections
-        SerialConnectionPreference::setPreferences(
+        SerialConnectionPreference::setPreference(
                     ui->boxPortNumber,
                     ui->boxBaudRate,
                     ui->boxParity,
