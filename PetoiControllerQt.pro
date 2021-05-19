@@ -1,4 +1,4 @@
-QT       += core gui serialport
+QT       += core gui serialport multimedia
 ICON      = logo.icns
 
 # localization
@@ -17,6 +17,7 @@ CONFIG += c++11
 SOURCES += \
     src/CalibFeedbackProcedure.cpp \
     src/Config/CustomCmdPreference.cpp \
+    src/Config/GlobalConfig.cpp \
     src/Config/JsonHandler.cpp \
     src/Config/SerialConnectionPreference.cpp \
     src/DataPacket/DataPacketHandler.cpp \

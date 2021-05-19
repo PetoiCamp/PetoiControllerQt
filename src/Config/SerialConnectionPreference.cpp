@@ -12,38 +12,6 @@
 JsonHandler SerialConnectionPreference::handler;
 
 
-void preProcessHandler(JsonHandler& handler) {
-    QString preference = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation)
-            + "/petoi/" + PREFER_FILE;
-
-    if (QtBasics::isFile(preference)) { // file exists
-
-        // load json string from file
-        std::string json = QtBasics::loadFile(preference).toStdString();
-//        qDebug() << QtBasics::loadFile(preference);
-        handler.from_json(json);
-
-    } else { // file not exists
-
-        // create an empty file
-        QtBasics::touch(preference);
-
-        // with default configuration
-        handler.from_json("{ \"port_name\": 0, \"baud_rate\": 7, \"parity\": 0, \"data_bits\": 3, \"stop_bits\": 0 }");
-    }
-}
-
-
-void saveUpdatedJson(QString jsonStr) {
-    QString preference = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation)
-            + "/petoi/" + PREFER_FILE;
-
-    if (QtBasics::isFile(preference)) {
-        QtBasics::saveFile(preference, jsonStr);
-    }
-}
-
-
 void SerialConnectionPreference::getPreferences(
         QComboBox *ports,
         QComboBox *baud,
@@ -52,7 +20,7 @@ void SerialConnectionPreference::getPreferences(
         QComboBox *stopBits) {
 
     // pre process json handler
-    preProcessHandler(handler);
+    petoi::loadJson(handler, PREFER_FILE);
 
     // get values from json file
     int default_port, default_baud, default_parity, default_databits, default_stopbits;
@@ -79,7 +47,7 @@ void SerialConnectionPreference::setPreferences(
         QComboBox *stopBits) {
 
     // pre process json handler
-    preProcessHandler(handler);
+    petoi::loadJson(handler, PREFER_FILE);
 
     // save all parameters back to file
     int default_port, default_baud, default_parity, default_databits, default_stopbits;
@@ -97,5 +65,5 @@ void SerialConnectionPreference::setPreferences(
     handler.set_int("stop_bits", default_stopbits);
 
     // write back to file
-    saveUpdatedJson(handler.to_str(true).c_str());
+    petoi::saveJson(handler, PREFER_FILE);
 };

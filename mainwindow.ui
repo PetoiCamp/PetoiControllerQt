@@ -40,7 +40,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="tabSerial">
      <attribute name="title">
@@ -625,8 +625,44 @@ p, li { white-space: pre-wrap; }
        </rect>
       </property>
       <property name="title">
-       <string>GroupBox</string>
+       <string>Custom Commands</string>
       </property>
+      <widget class="QTableView" name="tableView">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>30</y>
+         <width>721</width>
+         <height>351</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QWidget" name="">
+       <property name="geometry">
+        <rect>
+         <x>770</x>
+         <y>30</y>
+         <width>171</width>
+         <height>100</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <widget class="QPushButton" name="pushButton">
+          <property name="text">
+           <string>New</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButton_2">
+          <property name="text">
+           <string>Delete</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
      </widget>
     </widget>
    </widget>

@@ -4,14 +4,18 @@
 #include "JsonHandler.h"
 #include "src/Basics/QtBasics.h"
 
+#include <QTableView>
+
 
 class CustomCmdPreference
 {
 public:
-    CustomCmdPreference();
+    static void getPreferences(QTableView* view);
+
+    static void setPreferences(QTableView* view);
 
 private:
-    JsonHandler json;
+    static JsonHandler handler;
 };
 
 #endif // CUSTOMCMDPREFERENCE_H

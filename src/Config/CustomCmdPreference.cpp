@@ -1,7 +1,14 @@
 #include "CustomCmdPreference.h"
 
-CustomCmdPreference::CustomCmdPreference():
-    json()
-{
+
+JsonHandler CustomCmdPreference::handler;
+
+
+void CustomCmdPreference::getPreferences(QTableView* view) {
+
+}
+
+
+void CustomCmdPreference::setPreferences(QTableView *view) {
 
 }
