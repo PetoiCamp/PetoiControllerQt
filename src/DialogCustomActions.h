@@ -24,8 +24,19 @@ public:
 
     ~DialogCustomActions();
 
+    /**
+     * @brief setDialogStatus
+     * @param changeStatus
+     * @param name
+     * @param cmd
+     */
     void setDialogStatus(DialogCustomStatus changeStatus,
             QString name = "", QString cmd = "");
+
+
+protected slots:
+
+    void onOkBtnPressed();
 
 private:
     Ui::DialogCustomActions *ui;
