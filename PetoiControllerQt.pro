@@ -20,6 +20,7 @@ SOURCES += \
     src/Config/JsonHandler.cpp \
     src/Config/SerialConnectionPreference.cpp \
     src/DataPacket/DataPacketHandler.cpp \
+    src/DialogCustomActions.cpp \
     src/MainWindow_apx.cpp \
     src/MainWindow_ui.cpp \
     src/Serial/QSerialMessageQueue.cpp \
@@ -77,6 +78,7 @@ HEADERS += \
     src/DataPacket/DataPacket.h \
     src/DataPacket/DataPacketHandler.h \
     src/DataPacket/Definitions.h \
+    src/DialogCustomActions.h \
     src/MainWindow.h \
     src/Serial/QSerialMessageQueue.h \
     src/Serial/RawMessage.h \
@@ -88,6 +90,7 @@ HEADERS += \
 
 FORMS += \
     mainwindow.ui \
+    src/DialogCustomActions.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

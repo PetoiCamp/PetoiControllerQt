@@ -17,10 +17,12 @@ UiCustomActions::UiCustomActions(QObject *parent) :
 
 UiCustomActions::~UiCustomActions() {
 
-    if (theModel) {
-
-        // delete data
+    if (theModel) { // delete data
         delete  theModel;
+    }
+
+    if (dialog) {
+        delete dialog;
     }
 }
 
@@ -43,12 +45,19 @@ void UiCustomActions::setupViewTable(QTableView *view) {
 
     // setup list table
     initTableView();
+
+    // setup dialogs
+    if (dialog == nullptr) {
+        dialog = new DialogCustomActions;
+    }
 }
 
 
-void UiCustomActions::setupControlPanel(QPushButton *btnAdd,
-                                        QPushButton *btnDel,
-                                        QPushButton* btnSave) {
+void UiCustomActions::setupControlPanel(
+        QPushButton* btnAdd,
+        QPushButton* btnDel,
+        QPushButton* btnSave) {
+
     // connect signals and slots
     connect(btnAdd, SIGNAL(clicked(bool)), this, SLOT(onAddCommand()));
     connect(btnDel, SIGNAL(clicked(bool)), this, SLOT(onDeleteCommand()));
@@ -115,16 +124,22 @@ void UiCustomActions::onSendCommand() {
 
 void UiCustomActions::onAddCommand() {
     qDebug() << "onAddCommand";
+    //TODO
+    dialog->show();
 }
 
 
 void UiCustomActions::onDeleteCommand() {
     qDebug() << "onDeleteCommand";
+    //TODO
+    dialog->show();
 }
 
 
 void UiCustomActions::onModifyCommand() {
     qDebug() << "onModifyCommand";
+    //TODO
+    dialog->show();
 }
 
 

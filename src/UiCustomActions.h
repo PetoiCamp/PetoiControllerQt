@@ -2,6 +2,7 @@
 #define UICUSTOMACTIONS_H
 
 #include <QObject>
+#include <QDialog>
 
 #include <QPushButton>
 #include <QTableView>
@@ -9,6 +10,7 @@
 #include <QItemSelectionModel>
 
 #include "src/Config/JsonHandler.h"
+#include "src/DialogCustomActions.h"
 
 
 class UiCustomActions : public QObject
@@ -36,16 +38,19 @@ public:
      * @param btnSave
      */
     void setupControlPanel(
-            QPushButton* btnAdd,
-            QPushButton* btnDel,
+            QPushButton* btnAdd, 
+            QPushButton* btnDel, 
             QPushButton* btnSave);
 
 private:
     JsonHandler handler;
 
-    QTableView*            theView;
-    QStandardItemModel*    theModel;
-    QItemSelectionModel*   theSelection;
+    QTableView*             theView;
+    QStandardItemModel*     theModel;
+    QItemSelectionModel*    theSelection;
+
+private:
+    DialogCustomActions*    dialog;
 
 protected slots:
 
