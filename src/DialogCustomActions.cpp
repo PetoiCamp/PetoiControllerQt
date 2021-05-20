@@ -8,12 +8,18 @@ DialogCustomActions::DialogCustomActions(QWidget *parent) :
     ui->setupUi(this);
 }
 
+
 DialogCustomActions::~DialogCustomActions()
 {
     delete ui;
 }
 
 
-void DialogCustomActions::setDialogStatus(DialogCustomStatus changeStatus) {
+void DialogCustomActions::setDialogStatus(DialogCustomStatus changeStatus,
+                                          QString name, QString cmd) {
     currentStatus = changeStatus;
+
+    // set name and command
+    ui->lineEditCommand->setText(cmd);
+    ui->lineEditName->setText(name);
 };

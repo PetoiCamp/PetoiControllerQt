@@ -77,7 +77,7 @@ void UiCustomActions::updateViewTable() {
 
     // set columns
     QStringList columnTitles;
-    columnTitles << "id" << "name" << "command" << "action";
+    columnTitles << "id" << "name" << "command" << "send" << "edit";
     theModel->setHorizontalHeaderLabels(columnTitles);
 
     // get contents
@@ -85,7 +85,6 @@ void UiCustomActions::updateViewTable() {
             handler.get_multi_json_lists("actions");
 
     for (size_t i = 0; i < entities.size(); i++) {
-
         // parse json string
         JsonHandler item;
         item.from_json(entities[i]);
@@ -94,15 +93,11 @@ void UiCustomActions::updateViewTable() {
         auto name = item.has_item("name") ? item.get_string("name") : "unknown";
         auto cmd = item.has_item("cmd") ? item.get_string("cmd") : "";
 
-        // add button to the column
-        QPushButton *button = new QPushButton("Send");
+        // add send button
+        auto sendBtn = addSendBtnToTableview(item);
 
-        // set button's properties
-        button->setProperty("id", (int)i);
-        button->setProperty("cmd", cmd);
-
-        // click event
-        connect(button, SIGNAL(clicked(bool)), this, SLOT(onSendCommand()));
+        // add edit button
+        auto editBtn = addEditBtnToTableview(item);
 
         // set column
         theModel->setItem(i, 0, new QStandardItem(QString::number(i + 1)));
@@ -110,9 +105,50 @@ void UiCustomActions::updateViewTable() {
         theModel->setItem(i, 2, new QStandardItem(QString(cmd)));
 
         // insert button to last line
-        theView->setIndexWidget(theModel->index(i, 3), button);
+        theView->setIndexWidget(theModel->index(i, 3), sendBtn);
+        theView->setIndexWidget(theModel->index(i, 4), editBtn);
     }
 }
+
+
+QPushButton* UiCustomActions::addSendBtnToTableview(JsonHandler& item) {
+    // set name and command
+    auto name = item.has_item("name") ? item.get_string("name") : "unknown";
+    auto cmd = item.has_item("cmd") ? item.get_string("cmd") : "";
+
+    // add button to the column
+    QPushButton *button = new QPushButton("Send");
+
+    // set button's properties
+    button->setProperty("cmd", cmd);
+    button->setProperty("name", name);
+
+    // click event
+    connect(button, SIGNAL(clicked(bool)), this, SLOT(onSendCommand()));
+
+    // return
+    return button;
+};
+
+
+QPushButton* UiCustomActions::addEditBtnToTableview(JsonHandler& item) {
+    // set name and command
+    auto name = item.has_item("name") ? item.get_string("name") : "unknown";
+    auto cmd = item.has_item("cmd") ? item.get_string("cmd") : "";
+
+    // add button to the column
+    QPushButton *button = new QPushButton("Edit");
+
+    // set button's properties
+    button->setProperty("cmd", cmd);
+    button->setProperty("name", name);
+
+    // click event
+    connect(button, SIGNAL(clicked(bool)), this, SLOT(onModifyCommand()));
+
+    // return
+    return button;
+};
 
 
 void UiCustomActions::onSendCommand() {
@@ -139,8 +175,13 @@ void UiCustomActions::onDeleteCommand() {
 
 void UiCustomActions::onModifyCommand() {
     qDebug() << "onModifyCommand";
-    //TODO
-    dialog->setDialogStatus(::ModifyItem);
+
+    // get values from sender
+    QPushButton *btn = qobject_cast<QPushButton*>(sender());
+    QString cmd = btn->property("cmd").toString();
+    QString name = btn->property("name").toString();
+
+    dialog->setDialogStatus(::ModifyItem, name, cmd);
     dialog->show();
 }
 

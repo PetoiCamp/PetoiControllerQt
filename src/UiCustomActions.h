@@ -30,6 +30,7 @@ public:
      */
     void setupViewTable(QTableView* view);
 
+
     /**
      * @brief updateViewTable
      */
@@ -46,6 +47,11 @@ public:
             QPushButton* btnAdd, 
             QPushButton* btnDel, 
             QPushButton* btnSave);
+
+    
+    QPushButton* addSendBtnToTableview(JsonHandler& json);
+
+    QPushButton* addEditBtnToTableview(JsonHandler& json);
 
 public:
     JsonHandler handler;

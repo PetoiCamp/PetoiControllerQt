@@ -2,6 +2,7 @@
 #define DIALOGCUSTOMACTIONS_H
 
 #include <QDialog>
+#include <QString>
 
 namespace Ui {
 class DialogCustomActions;
@@ -23,8 +24,8 @@ public:
 
     ~DialogCustomActions();
 
-    void setDialogStatus(DialogCustomStatus changeStatus);
-
+    void setDialogStatus(DialogCustomStatus changeStatus,
+            QString name = "", QString cmd = "");
 
 private:
     Ui::DialogCustomActions *ui;
