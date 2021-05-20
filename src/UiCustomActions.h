@@ -3,6 +3,7 @@
 
 #include <QObject>
 
+#include <QPushButton>
 #include <QTableView>
 #include <QStandardItemModel>
 #include <QItemSelectionModel>
@@ -14,11 +15,30 @@ class UiCustomActions : public QObject
 {
     Q_OBJECT
 public:
+
     explicit UiCustomActions(QObject *parent = nullptr);
+
 
     ~UiCustomActions();
 
-    void setupWidgets(QTableView* view);
+
+    /**
+     * @brief setupViewTable
+     * @param view
+     */
+    void setupViewTable(QTableView* view);
+
+
+    /**
+     * @brief setupControlPanel
+     * @param btnAdd
+     * @param btnDel
+     * @param btnSave
+     */
+    void setupControlPanel(
+            QPushButton* btnAdd,
+            QPushButton* btnDel,
+            QPushButton* btnSave);
 
 private:
     JsonHandler handler;
@@ -28,9 +48,37 @@ private:
     QItemSelectionModel*   theSelection;
 
 protected slots:
-    void onSendCmdPressed();
+
+    /**
+     * @brief onSendCommand
+     */
+    void onSendCommand();
+
+    /**
+     * @brief onAddCommand
+     */
+    void onAddCommand();
+
+    /**
+     * @brief onDeleteCommand
+     */
+    void onDeleteCommand();
+
+    /**
+     * @brief onModifyCommand
+     */
+    void onModifyCommand();
+
+    /**
+     * @brief onSaveCommand
+     */
+    void onSaveCommand();
 
 private:
+
+    /**
+     * @brief initTableView
+     */
     void initTableView();
 };
 

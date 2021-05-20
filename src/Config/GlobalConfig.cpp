@@ -2,7 +2,9 @@
 #include "src/Basics/QtBasics.h"
 
 #include <QDir>
+#include <QDebug>
 #include <QStandardPaths>
+
 
 void petoi::loadJson(JsonHandler& handler, QString file_macro) {
     QString preference =
@@ -25,16 +27,28 @@ void petoi::loadJson(JsonHandler& handler, QString file_macro) {
     }
 };
 
+
 void petoi::saveJson(JsonHandler& handler, QString file_macro) {
     QString preference =
             QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation)
             + "/petoi/" + file_macro;
 
-    if (QtBasics::isFile(preference)) {
-        // convert to qt string data type
-        QString string(handler.to_str().c_str());
+    if (!QtBasics::isFile(preference)) {
 
-        // save to file
-        QtBasics::saveFile(preference, string);
+        // create an empty file
+        QtBasics::touch(preference);
+    } else {
+
+        // remove and touch a new
+        QtBasics::remove(preference);
+
+        // create an empty file
+        QtBasics::touch(preference);
     }
+
+    // convert to qt string data type
+    QString string(handler.to_str().c_str());
+
+    // save to file
+    QtBasics::saveFile(preference, string);
 };

@@ -63,7 +63,10 @@ void MainWindow::setupWidgets() {
                 ui->viewBittleIllustration);
 
     // setup custom actions/commands panel
-    uiCustomActions.setupWidgets(ui->tableCustomActions);
+    uiCustomActions.setupViewTable(ui->tableCustomActions);
+    uiCustomActions.setupControlPanel(ui->buttonCmdAdd,
+                                      ui->buttonCmdDel,
+                                      ui->buttonCmdSave);
 
     // init menu
     setupMenus();

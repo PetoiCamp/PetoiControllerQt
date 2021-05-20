@@ -637,13 +637,13 @@ p, li { white-space: pre-wrap; }
         </rect>
        </property>
       </widget>
-      <widget class="QWidget" name="">
+      <widget class="QWidget" name="layoutWidget">
        <property name="geometry">
         <rect>
          <x>770</x>
          <y>30</y>
          <width>171</width>
-         <height>100</height>
+         <height>121</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -658,6 +658,13 @@ p, li { white-space: pre-wrap; }
          <widget class="QPushButton" name="buttonCmdDel">
           <property name="text">
            <string>Delete</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="buttonCmdSave">
+          <property name="text">
+           <string>Save</string>
           </property>
          </widget>
         </item>
