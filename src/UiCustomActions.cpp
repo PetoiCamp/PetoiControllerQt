@@ -1,5 +1,6 @@
 #include "UiCustomActions.h"
 #include "src/Config/GlobalConfig.h"
+#include "src/MainWindow.h"
 
 #include <QStringList>
 #include <QDebug>
@@ -44,12 +45,19 @@ void UiCustomActions::setupViewTable(QTableView *view) {
     petoi::loadJson(handler, FRAMES_FILE);
 
     // setup list table
-    initTableView();
+    updateViewTable();
 
     // setup dialogs
     if (dialog == nullptr) {
         dialog = new DialogCustomActions;
     }
+
+    // scroll bar off
+    theView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
+    theView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
+
+    // disable user-editing
+    theView->setEditTriggers(QAbstractItemView::NoEditTriggers);
 }
 
 
@@ -65,7 +73,7 @@ void UiCustomActions::setupControlPanel(
 }
 
 
-void UiCustomActions::initTableView() {
+void UiCustomActions::updateViewTable() {
 
     // set columns
     QStringList columnTitles;
@@ -104,13 +112,6 @@ void UiCustomActions::initTableView() {
         // insert button to last line
         theView->setIndexWidget(theModel->index(i, 3), button);
     }
-
-    // scroll bar off
-    theView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
-    theView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
-
-    // disable user-editing
-    theView->setEditTriggers(QAbstractItemView::NoEditTriggers);
 }
 
 
@@ -118,13 +119,14 @@ void UiCustomActions::onSendCommand() {
     QPushButton *btn = qobject_cast<QPushButton*>(sender());
     QString cmd = btn->property("cmd").toString();
 
-    qDebug() << cmd;
+    MainWindow::uiSerialHandler.sendCmdViaSerialPort(cmd);
 }
 
 
 void UiCustomActions::onAddCommand() {
     qDebug() << "onAddCommand";
     //TODO
+    dialog->setDialogStatus(::AddItem);
     dialog->show();
 }
 
@@ -132,13 +134,13 @@ void UiCustomActions::onAddCommand() {
 void UiCustomActions::onDeleteCommand() {
     qDebug() << "onDeleteCommand";
     //TODO
-    dialog->show();
 }
 
 
 void UiCustomActions::onModifyCommand() {
     qDebug() << "onModifyCommand";
     //TODO
+    dialog->setDialogStatus(::ModifyItem);
     dialog->show();
 }
 

@@ -12,3 +12,8 @@ DialogCustomActions::~DialogCustomActions()
 {
     delete ui;
 }
+
+
+void DialogCustomActions::setDialogStatus(DialogCustomStatus changeStatus) {
+    currentStatus = changeStatus;
+};

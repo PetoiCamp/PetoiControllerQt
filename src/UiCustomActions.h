@@ -30,6 +30,11 @@ public:
      */
     void setupViewTable(QTableView* view);
 
+    /**
+     * @brief updateViewTable
+     */
+    void updateViewTable();
+
 
     /**
      * @brief setupControlPanel
@@ -42,9 +47,10 @@ public:
             QPushButton* btnDel, 
             QPushButton* btnSave);
 
-private:
+public:
     JsonHandler handler;
 
+private:
     QTableView*             theView;
     QStandardItemModel*     theModel;
     QItemSelectionModel*    theSelection;
@@ -78,13 +84,6 @@ protected slots:
      * @brief onSaveCommand
      */
     void onSaveCommand();
-
-private:
-
-    /**
-     * @brief initTableView
-     */
-    void initTableView();
 };
 
 #endif // UICUSTOMACTIONS_H
