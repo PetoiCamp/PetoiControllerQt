@@ -18,21 +18,25 @@ class DialogCustomActions : public QDialog
     Q_OBJECT
 
     DialogCustomStatus currentStatus;
+    QString lineName;
+    QString lineCommand;
+    int     itemId;
 
 public:
     explicit DialogCustomActions(QWidget *parent = nullptr);
 
     ~DialogCustomActions();
 
-    /**
-     * @brief setDialogStatus
-     * @param changeStatus
-     * @param name
-     * @param cmd
-     */
     void setDialogStatus(DialogCustomStatus changeStatus,
-            QString name = "", QString cmd = "");
+            int id = 0,
+            QString name = "",
+            QString cmd = "");
 
+    
+    std::vector<std::string> addNewItem(QString name, QString cmd);
+
+
+    std::vector<std::string> modifyItem(int id, QString name, QString cmd);
 
 protected slots:
 

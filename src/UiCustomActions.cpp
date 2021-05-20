@@ -94,13 +94,13 @@ void UiCustomActions::updateViewTable() {
         auto cmd = item.has_item("cmd") ? item.get_string("cmd") : "";
 
         // add send button
-        auto sendBtn = addSendBtnToTableview(item);
+        auto sendBtn = addSendBtnToTableview(i, item);
 
         // add edit button
-        auto editBtn = addEditBtnToTableview(item);
+        auto editBtn = addEditBtnToTableview(i, item);
 
         // set column
-        theModel->setItem(i, 0, new QStandardItem(QString::number(i + 1)));
+        theModel->setItem(i, 0, new QStandardItem(QString::number(i)));
         theModel->setItem(i, 1, new QStandardItem(QString(name)));
         theModel->setItem(i, 2, new QStandardItem(QString(cmd)));
 
@@ -111,7 +111,7 @@ void UiCustomActions::updateViewTable() {
 }
 
 
-QPushButton* UiCustomActions::addSendBtnToTableview(JsonHandler& item) {
+QPushButton* UiCustomActions::addSendBtnToTableview(int id, JsonHandler& item) {
     // set name and command
     auto name = item.has_item("name") ? item.get_string("name") : "unknown";
     auto cmd = item.has_item("cmd") ? item.get_string("cmd") : "";
@@ -122,6 +122,7 @@ QPushButton* UiCustomActions::addSendBtnToTableview(JsonHandler& item) {
     // set button's properties
     button->setProperty("cmd", cmd);
     button->setProperty("name", name);
+    button->setProperty("id", id);
 
     // click event
     connect(button, SIGNAL(clicked(bool)), this, SLOT(onSendCommand()));
@@ -131,7 +132,7 @@ QPushButton* UiCustomActions::addSendBtnToTableview(JsonHandler& item) {
 };
 
 
-QPushButton* UiCustomActions::addEditBtnToTableview(JsonHandler& item) {
+QPushButton* UiCustomActions::addEditBtnToTableview(int id, JsonHandler& item) {
     // set name and command
     auto name = item.has_item("name") ? item.get_string("name") : "unknown";
     auto cmd = item.has_item("cmd") ? item.get_string("cmd") : "";
@@ -142,6 +143,7 @@ QPushButton* UiCustomActions::addEditBtnToTableview(JsonHandler& item) {
     // set button's properties
     button->setProperty("cmd", cmd);
     button->setProperty("name", name);
+    button->setProperty("id", id);
 
     // click event
     connect(button, SIGNAL(clicked(bool)), this, SLOT(onModifyCommand()));
@@ -180,8 +182,9 @@ void UiCustomActions::onModifyCommand() {
     QPushButton *btn = qobject_cast<QPushButton*>(sender());
     QString cmd = btn->property("cmd").toString();
     QString name = btn->property("name").toString();
+    int id = btn->property("id").toInt();
 
-    dialog->setDialogStatus(::ModifyItem, name, cmd);
+    dialog->setDialogStatus(::ModifyItem, id, name, cmd);
     dialog->show();
 }
 

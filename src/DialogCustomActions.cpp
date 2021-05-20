@@ -26,44 +26,34 @@ DialogCustomActions::~DialogCustomActions()
 
 
 void DialogCustomActions::setDialogStatus(DialogCustomStatus changeStatus,
-                                          QString name, QString cmd) {
+                                          int id,
+                                          QString name,
+                                          QString cmd) {
     currentStatus = changeStatus;
 
     // set name and command
     ui->lineEditCommand->setText(cmd);
     ui->lineEditName->setText(name);
+
+    itemId = id;
 };
 
 
 void DialogCustomActions::onOkBtnPressed() {
 
-    // get items from json file
-    std::vector<std::string> entities =
-            MainWindow::uiCustomActions.handler
-                .get_multi_json_lists("actions");
+    lineName = ui->lineEditName->text();
+    lineCommand  = ui->lineEditCommand->text();
 
-    QString name = ui->lineEditName->text();
-    QString cmd  = ui->lineEditCommand->text();
+    std::vector<std::string> entities;
 
     if (currentStatus == ::AddItem) {
-        JsonHandler item;
-        item.set_string("name", name.toStdString());
-        item.set_string("cmd", cmd.toStdString());
 
-        entities.push_back(item.to_str());
+        entities = addNewItem(lineName, lineCommand);
+
     } else if (currentStatus == ::ModifyItem) {
-        for (size_t i = 0; i < entities.size(); i++) {
-            JsonHandler item;
-            item.from_json(entities[i]);
 
-            QString qname = QString(item.get_string("name"));
-            if (qname == name) {
-                item.set_string("cmd", cmd.toStdString());
-            }
+        entities = modifyItem(itemId, lineName, lineCommand);
 
-            entities[i] = item.to_str();
-            break;
-        }
     }
 
     // clear all
@@ -72,12 +62,38 @@ void DialogCustomActions::onOkBtnPressed() {
     // set new json string
     MainWindow::uiCustomActions.handler.set_multi_json_lists("actions", entities);
 
-    for (auto iter = entities.begin(); iter != entities.end(); iter++) {
-        qDebug() << QString(iter->c_str());
-    }
-
-    qDebug() << MainWindow::uiCustomActions.handler.to_str().c_str();
-
     // refresh table
-//    MainWindow::uiCustomActions.updateViewTable();
+    MainWindow::uiCustomActions.updateViewTable();
+}
+
+
+std::vector<std::string> DialogCustomActions::addNewItem(QString name, QString cmd) {
+    // get items from json file
+    std::vector<std::string> entities =
+            MainWindow::uiCustomActions.handler
+                .get_multi_json_lists("actions");
+
+    JsonHandler item;
+    item.set_string("name", name.toStdString());
+    item.set_string("cmd", cmd.toStdString());
+
+    entities.push_back(item.to_str());
+
+    return entities;
+}
+
+
+std::vector<std::string> DialogCustomActions::modifyItem(int id, QString name, QString cmd) {
+    // get items from json file
+    std::vector<std::string> entities =
+            MainWindow::uiCustomActions.handler
+                .get_multi_json_lists("actions");
+
+    JsonHandler item;
+    item.set_string("name", name.toStdString());
+    item.set_string("cmd", cmd.toStdString());
+
+    entities[id] = item.to_str();
+
+    return entities;
 }

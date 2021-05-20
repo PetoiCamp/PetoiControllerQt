@@ -49,9 +49,9 @@ public:
             QPushButton* btnSave);
 
     
-    QPushButton* addSendBtnToTableview(JsonHandler& json);
+    QPushButton* addSendBtnToTableview(int id, JsonHandler& json);
 
-    QPushButton* addEditBtnToTableview(JsonHandler& json);
+    QPushButton* addEditBtnToTableview(int id, JsonHandler& json);
 
 public:
     JsonHandler handler;
