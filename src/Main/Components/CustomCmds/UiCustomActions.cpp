@@ -8,8 +8,7 @@
 
 
 UiCustomActions::UiCustomActions(QObject *parent) :
-    QObject(parent),
-    handler()
+    QObject(parent)
 {
     if (theModel == nullptr) {
         theModel = new QStandardItemModel();

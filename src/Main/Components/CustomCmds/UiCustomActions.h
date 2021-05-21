@@ -4,6 +4,8 @@
 #include <QObject>
 #include <QDialog>
 
+#include <QPair>
+#include <QList>
 #include <QPushButton>
 #include <QTableView>
 #include <QStandardItemModel>
@@ -54,7 +56,7 @@ public:
     QPushButton* addEditBtnToTableview(int id, JsonHandler& json);
 
 public:
-    JsonHandler handler;
+    QList<QPair<QString, QString>> actions;
 
 private:
     QTableView*             theView;
