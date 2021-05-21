@@ -23,7 +23,7 @@ class UiSerialHandler: public QObject
 private:
     QTimer                                          timer;
     QSerialMessageQueue                             queue;
-    QTextBrowser*                                   textview_ptr;
+    QList<QTextBrowser*>                            textviews;
 
     QList<QPair<QString, qint32>>                   serialBaudRatesList;
     QList<QPair<QString, QSerialPort::DataBits>>    serialDataBitsList;
@@ -83,11 +83,9 @@ public:
      */
     void disconnectSerial();
 
-    /**
-     * @brief setFeedbackTextview
-     * @param browser
-     */
-    void bindFeedbackTextview(QTextBrowser* browser);
+
+    void bindFeedbackTextview(QList<QTextBrowser*> browsers);
+
 
     /**
      * @brief unbindFeedbackTextview

@@ -6,17 +6,17 @@
     <message>
         <location filename="ui/DialogCustomAction.ui" line="26"/>
         <source>Command Editor</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="ui/DialogCustomAction.ui" line="61"/>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="ui/DialogCustomAction.ui" line="81"/>
         <source>Command</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -65,7 +65,7 @@
     <message>
         <location filename="ui/MainWindow.ui" line="211"/>
         <location filename="src/Main/MainWindow_apx.cpp" line="105"/>
-        <location filename="src/Main/MainWindow_apx.cpp" line="145"/>
+        <location filename="src/Main/MainWindow_apx.cpp" line="149"/>
         <source>Connect</source>
         <translation></translation>
     </message>
@@ -204,87 +204,92 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="ui/MainWindow.ui" line="628"/>
         <source>Custom Commands</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
-        <location filename="ui/MainWindow.ui" line="653"/>
+        <location filename="ui/MainWindow.ui" line="660"/>
+        <source>Serial Output</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="ui/MainWindow.ui" line="673"/>
         <source>New</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
-        <location filename="ui/MainWindow.ui" line="676"/>
+        <location filename="ui/MainWindow.ui" line="693"/>
         <source>Language</source>
         <translation></translation>
     </message>
     <message>
         <location filename="src/Main/MainWindow_apx.cpp" line="116"/>
-        <location filename="src/Main/MainWindow_apx.cpp" line="142"/>
+        <location filename="src/Main/MainWindow_apx.cpp" line="146"/>
         <source>Disconnect</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="src/Main/MainWindow_apx.cpp" line="135"/>
+        <location filename="src/Main/MainWindow_apx.cpp" line="139"/>
         <source>Unable to connect the device!</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
-        <location filename="src/Main/MainWindow_apx.cpp" line="136"/>
+        <location filename="src/Main/MainWindow_apx.cpp" line="140"/>
         <source>The device may offline or busy</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
-        <location filename="src/Main/MainWindow_apx.cpp" line="188"/>
-        <location filename="src/Main/MainWindow_apx.cpp" line="198"/>
+        <location filename="src/Main/MainWindow_apx.cpp" line="192"/>
+        <location filename="src/Main/MainWindow_apx.cpp" line="202"/>
         <source>Unable to adjust fine angle!</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="src/Main/MainWindow_apx.cpp" line="189"/>
+        <location filename="src/Main/MainWindow_apx.cpp" line="193"/>
         <source>Because you have reached the maximum angle</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="src/Main/MainWindow_apx.cpp" line="199"/>
+        <location filename="src/Main/MainWindow_apx.cpp" line="203"/>
         <source>Because you have reached the minimum angle</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="src/Main/MainWindow_ui.cpp" line="255"/>
+        <location filename="src/Main/MainWindow_ui.cpp" line="257"/>
         <source>&amp;File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/Main/MainWindow_ui.cpp" line="256"/>
+        <location filename="src/Main/MainWindow_ui.cpp" line="258"/>
         <source>&amp;Language</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/Main/MainWindow_ui.cpp" line="258"/>
+        <location filename="src/Main/MainWindow_ui.cpp" line="260"/>
         <source>&amp;Chinese</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/Main/MainWindow_ui.cpp" line="258"/>
+        <location filename="src/Main/MainWindow_ui.cpp" line="260"/>
         <source>Ctrl+[</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/Main/MainWindow_ui.cpp" line="259"/>
+        <location filename="src/Main/MainWindow_ui.cpp" line="261"/>
         <source>&amp;English</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/Main/MainWindow_ui.cpp" line="259"/>
+        <location filename="src/Main/MainWindow_ui.cpp" line="261"/>
         <source>Ctrl+]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/Main/MainWindow_ui.cpp" line="264"/>
+        <location filename="src/Main/MainWindow_ui.cpp" line="266"/>
         <source>&amp;Exit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/Main/MainWindow_ui.cpp" line="264"/>
+        <location filename="src/Main/MainWindow_ui.cpp" line="266"/>
         <source>Ctrl+Q</source>
         <translation type="unfinished"></translation>
     </message>
@@ -340,17 +345,17 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>UiSerialHandler</name>
     <message>
-        <location filename="src/Main/Components/Serials/UiSerialHandler.cpp" line="204"/>
+        <location filename="src/Main/Components/Serials/UiSerialHandler.cpp" line="220"/>
         <source>None</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/Main/Components/Serials/UiSerialHandler.cpp" line="205"/>
+        <location filename="src/Main/Components/Serials/UiSerialHandler.cpp" line="221"/>
         <source>Odd</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/Main/Components/Serials/UiSerialHandler.cpp" line="206"/>
+        <location filename="src/Main/Components/Serials/UiSerialHandler.cpp" line="222"/>
         <source>Even</source>
         <translation type="unfinished"></translation>
     </message>

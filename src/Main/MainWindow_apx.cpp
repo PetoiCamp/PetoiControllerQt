@@ -1,5 +1,5 @@
 #include "MainWindow.h"
-#include "ui_mainwindow.h"
+#include "ui_MainWindow.h"
 
 #include "Components/Serials/SerialConnectionPreference.h"
 
@@ -124,7 +124,11 @@ void MainWindow::onSerialConnection() {
                     ui->boxParity->currentIndex())) {
 
             // bind textbrowser
-            uiSerialHandler.bindFeedbackTextview(ui->textTerminalOutput);
+            QList<QTextBrowser*> browser;
+            browser.push_back(ui->textTerminalOutput);
+            browser.push_back(ui->textTerminalOutput2);
+            uiSerialHandler.bindFeedbackTextview(browser);
+
 
             // switch widgets' status
             isSerialOn = isDefActionsOn = isCusActionOn = true;

@@ -85,9 +85,11 @@ void MainWindow::switchCustomActions() {
     if (isCusActionOn) {
         ui->buttonCmdAdd->setEnabled(true);
         ui->tableCustomActions->setEnabled(true);
+        ui->textTerminalOutput2->setEnabled(true);
     } else {
         ui->buttonCmdAdd->setEnabled(false);
         ui->tableCustomActions->setEnabled(false);
+        ui->textTerminalOutput2->setEnabled(false);
     }
 }
 

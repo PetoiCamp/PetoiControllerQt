@@ -90,10 +90,10 @@ void UiSerialHandler::disconnectSerial() {
 }
 
 
-void UiSerialHandler::bindFeedbackTextview(QTextBrowser *browser) {
+void UiSerialHandler::bindFeedbackTextview(QList<QTextBrowser*> browsers) {
 
     // set browser ptr
-    textview_ptr = browser;
+    textviews = browsers;
 
     // connect timer signal/slot
     connect(&timer, SIGNAL(timeout()), this, SLOT(onUpdateTextview()));
@@ -108,7 +108,7 @@ void UiSerialHandler::bindFeedbackTextview(QTextBrowser *browser) {
 void UiSerialHandler::unbindFeedbackTextview() {
 
     // set browser ptr to nullptr
-    textview_ptr = nullptr;
+    textviews.clear();
 
     // disconnect timer signal/slot
     disconnect(&timer, SIGNAL(timeout()), this, SLOT(onUpdateTextview()));
@@ -121,23 +121,37 @@ void UiSerialHandler::unbindFeedbackTextview() {
 
 
 void UiSerialHandler::onUpdateTextview() {
-    if (textview_ptr != nullptr) {
 
-        QString plantText = textview_ptr->toPlainText();
-        char buffer[1024] = { 0 };
+    // if browsers' count greater than 1
+    if (textviews.count() < 1) return;
 
-        int result = queue.recvViaSerial((unsigned char*)buffer, 1024);
-        if (result > 0) {
+    // update first
+    QTextBrowser* browser = textviews[0];
 
-            // update output
-            QString feedback(buffer);
-            feedback = plantText + feedback;
-            textview_ptr->setText(feedback);
+    // update the browser's context
+    QString plantText = browser->toPlainText();
+    char buffer[1024] = { 0 };
 
-            if (isCalibrated) {
-                MainWindow::uiCalibration.updateCalibrationInfo(feedback);
-            }
+    int result = queue.recvViaSerial((unsigned char*)buffer, 1024);
+    if (result > 0) {
+
+        // update output
+        QString feedback(buffer);
+        feedback = plantText + feedback;
+        browser->setText(feedback);
+
+        if (isCalibrated) {
+            MainWindow::uiCalibration.updateCalibrationInfo(feedback);
         }
+    }
+
+    // synchronize the others
+    QString context = browser->toPlainText();
+    for (auto iter = textviews.begin();
+         iter != textviews.end(); iter++) {
+
+        browser = *iter;
+        browser->setText(context);
     }
 };
 
@@ -151,8 +165,10 @@ void UiSerialHandler::sendCmdViaSerialPort(QString cmd) {
     isCalibrated = msg == "c" ? true : false;
 
     // clear output
-    if (textview_ptr) {
-        textview_ptr->clear();
+    for (auto iter = textviews.begin();
+         iter != textviews.end(); iter++) {
+        QTextBrowser* browser = *iter;
+        browser->clear();
     }
 }
 
