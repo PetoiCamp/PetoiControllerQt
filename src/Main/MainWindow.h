@@ -5,10 +5,10 @@
 #include <QMainWindow>
 #include <QTranslator>
 
-#include "UiCustomActions.h"
-#include "UiSerialHandler.h"
-#include "UiCalibrationCheck.h"
-#include "UiMotionControl.h"
+#include "Components/Calibration/UiCalibrationCheck.h"
+#include "Components/Serials/UiSerialHandler.h"
+#include "Components/DefaultControls/UiMotionControl.h"
+#include "Components/CustomCmds/UiCustomActions.h"
 
 
 namespace Ui {
@@ -31,7 +31,8 @@ private:
 
     bool                isSerialOn;
     bool                isCalibrationOn;
-    bool                isActionsOn;
+    bool                isDefActionsOn;
+    bool                isCusActionOn;
 
 public:
     static UiSerialHandler      uiSerialHandler;
@@ -98,6 +99,11 @@ protected slots:
 private:
 
     /**
+     * @brief switchCustomActions
+     */
+    void switchCustomActions();
+
+    /**
      * @brief serialSwitch
      */
     void switchSerial();
@@ -110,7 +116,7 @@ private:
     /**
      * @brief terminalSwitch
      */
-    void switchActions();
+    void switchDefaultActions();
 
     /**
      * @brief setupLanguages

@@ -1,7 +1,7 @@
 #include "MainWindow.h"
-#include "ui_mainwindow.h"
+#include "ui_MainWindow.h"
 
-#include "Config/SerialConnectionPreference.h"
+#include "Components/Serials/SerialConnectionPreference.h"
 
 #include <QDebug>
 
@@ -64,9 +64,7 @@ void MainWindow::setupWidgets() {
 
     // setup custom actions/commands panel
     uiCustomActions.setupViewTable(ui->tableCustomActions);
-    uiCustomActions.setupControlPanel(ui->buttonCmdAdd,
-                                      ui->buttonCmdDel,
-                                      ui->buttonCmdSave);
+    uiCustomActions.setupControlPanel(ui->buttonCmdAdd);
 
     // init menu
     setupMenus();
@@ -75,10 +73,24 @@ void MainWindow::setupWidgets() {
     setupLanguages();
 
     // switch
-    isSerialOn = isCalibrationOn = isActionsOn = false;
-    switchActions();
+    isSerialOn = isCalibrationOn = isDefActionsOn = isCusActionOn = false;
+    switchDefaultActions();
+    switchCustomActions();
     switchCalibration();
     switchSerial();
+}
+
+
+void MainWindow::switchCustomActions() {
+    if (isCusActionOn) {
+        ui->buttonCmdAdd->setEnabled(true);
+        ui->tableCustomActions->setEnabled(true);
+        ui->textTerminalOutput2->setEnabled(true);
+    } else {
+        ui->buttonCmdAdd->setEnabled(false);
+        ui->tableCustomActions->setEnabled(false);
+        ui->textTerminalOutput2->setEnabled(false);
+    }
 }
 
 
@@ -115,6 +127,9 @@ void MainWindow::switchSerial() {
         ui->textTerminalOutput->setEnabled(true);
 
         ui->buttonCalibration->setEnabled(true);
+
+        ui->buttonCmdAdd->setEnabled(true);
+        ui->tableCustomActions->setEnabled(true);
     } else {
         ui->boxPortNumber->setEnabled(true);
         ui->boxBaudRate->setEnabled(true);
@@ -128,12 +143,15 @@ void MainWindow::switchSerial() {
         ui->textTerminalOutput->setEnabled(false);
 
         ui->buttonCalibration->setEnabled(false);
+
+        ui->buttonCmdAdd->setEnabled(false);
+        ui->tableCustomActions->setEnabled(false);
     }
 }
 
 
-void MainWindow::switchActions() {
-    if (isActionsOn) {
+void MainWindow::switchDefaultActions() {
+    if (isDefActionsOn) {
         ui->buttonPosBackFlip->setEnabled(true);
         ui->buttonPosBunnyJump->setEnabled(true);
         ui->buttonPosButtomUp->setEnabled(true);
@@ -165,7 +183,7 @@ void MainWindow::switchActions() {
 
 void MainWindow::keyPressEvent(QKeyEvent *event) {
     if (ui->tabWidget->currentIndex() == 0) return; // 1st tab skipped
-    if (!isActionsOn) return;
+    if (!isDefActionsOn) return;
 
     switch (event->key())
     {
@@ -209,7 +227,7 @@ void MainWindow::keyPressEvent(QKeyEvent *event) {
 
 void MainWindow::keyReleaseEvent(QKeyEvent *event) {
     if (ui->tabWidget->currentIndex() == 0) return; // 1st tab skipped
-    if (!isActionsOn) return;
+    if (!isDefActionsOn) return;
 
     uiMotionControl.procQtKeyReleasedEvent(event);
 }

@@ -4,13 +4,15 @@
 #include <QObject>
 #include <QDialog>
 
+#include <QPair>
+#include <QList>
 #include <QPushButton>
 #include <QTableView>
 #include <QStandardItemModel>
 #include <QItemSelectionModel>
 
-#include "src/Config/JsonHandler.h"
-#include "src/DialogCustomActions.h"
+#include "src/Json/JsonHandler.h"
+#include "Dialog/DialogCustomAction.h"
 
 
 class UiCustomActions : public QObject
@@ -32,29 +34,27 @@ public:
 
 
     /**
+     * @brief setupControlPanel
+     * @param btnAdd
+     */
+    void setupControlPanel(QPushButton* btnAdd);
+
+
+    /**
      * @brief updateViewTable
      */
     void updateViewTable();
 
-
-    /**
-     * @brief setupControlPanel
-     * @param btnAdd
-     * @param btnDel
-     * @param btnSave
-     */
-    void setupControlPanel(
-            QPushButton* btnAdd, 
-            QPushButton* btnDel, 
-            QPushButton* btnSave);
-
-    
-    QPushButton* addSendBtnToTableview(JsonHandler& json);
-
-    QPushButton* addEditBtnToTableview(JsonHandler& json);
+private:
+    QPushButton*
+    createTableviewItemBtn(
+        int id = 0,
+        QString btn = "",
+        QString name = "",
+        QString cmd = "");
 
 public:
-    JsonHandler handler;
+    QList<QPair<QString, QString>> actions;
 
 private:
     QTableView*             theView;
@@ -62,7 +62,7 @@ private:
     QItemSelectionModel*    theSelection;
 
 private:
-    DialogCustomActions*    dialog;
+    DialogCustomAction*     dialog;
 
 protected slots:
 
@@ -85,11 +85,6 @@ protected slots:
      * @brief onModifyCommand
      */
     void onModifyCommand();
-
-    /**
-     * @brief onSaveCommand
-     */
-    void onSaveCommand();
 };
 
 #endif // UICUSTOMACTIONS_H

@@ -1,6 +1,6 @@
 #include "SerialConnectionPreference.h"
-#include "GlobalConfig.h"
-#include "JsonHandler.h"
+#include "src/Config/GlobalConfig.h"
+#include "src/Json/JsonHandler.h"
 #include "src/Basics/QtBasics.h"
 
 #include <QString>

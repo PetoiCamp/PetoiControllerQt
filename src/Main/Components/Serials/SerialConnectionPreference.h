@@ -3,7 +3,7 @@
 
 #include <QComboBox>
 
-#include "JsonHandler.h"
+#include "src/Json/JsonHandler.h"
 
 
 class SerialConnectionPreference

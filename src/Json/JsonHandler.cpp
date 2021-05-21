@@ -713,10 +713,10 @@ JsonHandler& JsonHandler::set_multi_json_lists(std::string k, std::vector<std::s
     Value value(kArrayType);
 
     // append sub json strings to value
+    Document sub;
     for (auto iter = multi.begin(); iter != multi.end(); iter++) {
-        Document sub_json;
-        sub_json.Parse(iter->c_str());
-        value.PushBack(sub_json, allocator);
+        sub.Parse(iter->c_str());
+        value.PushBack(sub, allocator);
     }
 
     // add the value to the document
