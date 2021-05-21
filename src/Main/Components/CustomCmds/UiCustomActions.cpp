@@ -1,10 +1,13 @@
 #include "UiCustomActions.h"
 #include "src/Config/GlobalConfig.h"
 #include "src/Main/MainWindow.h"
+#include "JsonParementer.h"
 
 #include <QStringList>
 #include <QDebug>
 #include <QPushButton>
+#include <QObject>
+#include <QHBoxLayout>
 
 
 UiCustomActions::UiCustomActions(QObject *parent) :
@@ -13,6 +16,9 @@ UiCustomActions::UiCustomActions(QObject *parent) :
     if (theModel == nullptr) {
         theModel = new QStandardItemModel();
     }
+
+    // try to load records from json file
+    actions = JsonParementer::loadCommands();
 }
 
 UiCustomActions::~UiCustomActions() {
@@ -24,6 +30,9 @@ UiCustomActions::~UiCustomActions() {
     if (dialog) {
         delete dialog;
     }
+
+    // save updated records to json file
+    JsonParementer::saveCommands(actions);
 }
 
 void UiCustomActions::setupViewTable(QTableView *view) {
@@ -40,15 +49,12 @@ void UiCustomActions::setupViewTable(QTableView *view) {
         theView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     }
 
-    // load json file
-//    petoi::loadJson(handler, FRAMES_FILE);
-
     // setup list table
     updateViewTable();
 
     // setup dialogs
     if (dialog == nullptr) {
-        dialog = new DialogCustomActions;
+        dialog = new DialogCustomAction;
     }
 
     // scroll bar off
@@ -57,18 +63,17 @@ void UiCustomActions::setupViewTable(QTableView *view) {
 
     // disable user-editing
     theView->setEditTriggers(QAbstractItemView::NoEditTriggers);
+
+    // auto-fit
+    theView->resizeColumnsToContents();
 }
 
 
 void UiCustomActions::setupControlPanel(
-        QPushButton* btnAdd,
-        QPushButton* btnDel,
-        QPushButton* btnSave) {
+        QPushButton* btnAdd) {
 
     // connect signals and slots
     connect(btnAdd, SIGNAL(clicked(bool)), this, SLOT(onAddCommand()));
-    connect(btnDel, SIGNAL(clicked(bool)), this, SLOT(onDeleteCommand()));
-    connect(btnSave, SIGNAL(clicked(bool)), this, SLOT(onSaveCommand()));
 }
 
 
@@ -76,78 +81,58 @@ void UiCustomActions::updateViewTable() {
 
     // set columns
     QStringList columnTitles;
-    columnTitles << "id" << "name" << "command" << "send" << "edit";
+    columnTitles << "Id" << "Name" << "Content" << "Options";
     theModel->setHorizontalHeaderLabels(columnTitles);
 
     // get contents
-//    std::vector<std::string> entities =
-//            handler.get_multi_json_lists("actions");
+    int i = 0;
+    for (auto iter = actions.begin();
+         iter != actions.end(); iter++, i++) {
 
-//    for (size_t i = 0; i < entities.size(); i++) {
-//        // parse json string
-//        JsonHandler item;
-//        item.from_json(entities[i]);
+        // set columns
+        theModel->setItem(i, 0, new QStandardItem(QString::number(i)));
+        theModel->setItem(i, 1, new QStandardItem(iter->first));
+        theModel->setItem(i, 2, new QStandardItem(iter->second));
 
-//        // set name and command
-//        auto name = item.has_item("name") ? item.get_string("name") : "unknown";
-//        auto cmd = item.has_item("cmd") ? item.get_string("cmd") : "";
+        // the item's related buttons
+        auto sendBtn = createTableviewItemBtn(
+                    i, "Send",
+                    iter->second);
+        auto editBtn = createTableviewItemBtn(i, "Edit");
+        auto deltBtn = createTableviewItemBtn(i, "Delete");
 
-//        // add send button
-//        auto sendBtn = addSendBtnToTableview(i, item);
+        // add buttons to the table's row
+        QWidget* temp = new QWidget;
+        QHBoxLayout *layout = new QHBoxLayout(temp);
+        layout->addWidget(sendBtn);
+        layout->addWidget(editBtn);
+        layout->addWidget(deltBtn);
+        layout->setMargin(0);
+        theView->setIndexWidget(theModel->index(i, 3), temp);
 
-//        // add edit button
-//        auto editBtn = addEditBtnToTableview(i, item);
-
-//        // set column
-//        theModel->setItem(i, 0, new QStandardItem(QString::number(i)));
-//        theModel->setItem(i, 1, new QStandardItem(QString(name)));
-//        theModel->setItem(i, 2, new QStandardItem(QString(cmd)));
-
-//        // insert button to last line
-//        theView->setIndexWidget(theModel->index(i, 3), sendBtn);
-//        theView->setIndexWidget(theModel->index(i, 4), editBtn);
-//    }
+        // connect
+        connect(sendBtn, SIGNAL(clicked(bool)), this, SLOT(onSendCommand()));
+        connect(editBtn, SIGNAL(clicked(bool)), this, SLOT(onModifyCommand()));
+        connect(deltBtn, SIGNAL(clicked(bool)), this, SLOT(onDeleteCommand()));
+    }
 }
 
 
-QPushButton* UiCustomActions::addSendBtnToTableview(int id, JsonHandler& item) {
-    // set name and command
-    auto name = item.has_item("name") ? item.get_string("name") : "unknown";
-    auto cmd = item.has_item("cmd") ? item.get_string("cmd") : "";
+QPushButton*
+UiCustomActions::createTableviewItemBtn(
+        int id,
+        QString name,
+        QString cmd) {
 
     // add button to the column
-    QPushButton *button = new QPushButton("Send");
+    QPushButton *button = new QPushButton(name);
 
-    // set button's properties
+    // store some values to button's property
     button->setProperty("cmd", cmd);
     button->setProperty("name", name);
     button->setProperty("id", id);
 
-    // click event
-    connect(button, SIGNAL(clicked(bool)), this, SLOT(onSendCommand()));
-
-    // return
-    return button;
-};
-
-
-QPushButton* UiCustomActions::addEditBtnToTableview(int id, JsonHandler& item) {
-    // set name and command
-    auto name = item.has_item("name") ? item.get_string("name") : "unknown";
-    auto cmd = item.has_item("cmd") ? item.get_string("cmd") : "";
-
-    // add button to the column
-    QPushButton *button = new QPushButton("Edit");
-
-    // set button's properties
-    button->setProperty("cmd", cmd);
-    button->setProperty("name", name);
-    button->setProperty("id", id);
-
-    // click event
-    connect(button, SIGNAL(clicked(bool)), this, SLOT(onModifyCommand()));
-
-    // return
+    // return to caller
     return button;
 };
 
@@ -163,8 +148,6 @@ void UiCustomActions::onSendCommand() {
 void UiCustomActions::onAddCommand() {
     qDebug() << "onAddCommand";
     //TODO
-    dialog->setDialogStatus(::AddItem);
-    dialog->show();
 }
 
 
@@ -176,19 +159,5 @@ void UiCustomActions::onDeleteCommand() {
 
 void UiCustomActions::onModifyCommand() {
     qDebug() << "onModifyCommand";
-
-    // get values from sender
-    QPushButton *btn = qobject_cast<QPushButton*>(sender());
-    QString cmd = btn->property("cmd").toString();
-    QString name = btn->property("name").toString();
-    int id = btn->property("id").toInt();
-
-    dialog->setDialogStatus(::ModifyItem, id, name, cmd);
-    dialog->show();
-}
-
-
-void UiCustomActions::onSaveCommand() {
-//    qDebug() << "onSaveCommand";
-//    petoi::saveJson(handler, FRAMES_FILE);
+    //TODO
 }

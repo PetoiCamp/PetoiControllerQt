@@ -26,7 +26,7 @@
    <string>PetoiControllerQt v0.2.1a</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="resources.qrc">
+   <iconset resource="../resources.qrc">
     <normaloff>:/app/pic/logo.icns</normaloff>:/app/pic/logo.icns</iconset>
   </property>
   <widget class="QWidget" name="centralWidget">
@@ -400,7 +400,7 @@
       <property name="title">
        <string>Terminal</string>
       </property>
-      <widget class="QWidget" name="layoutWidget">
+      <widget class="QWidget" name="layoutWidget_6">
        <property name="geometry">
         <rect>
          <x>10</x>
@@ -465,7 +465,7 @@
       <property name="title">
        <string>Default Actions</string>
       </property>
-      <widget class="QWidget" name="layoutWidget">
+      <widget class="QWidget" name="layoutWidget_7">
        <property name="geometry">
         <rect>
          <x>11</x>
@@ -637,7 +637,7 @@ p, li { white-space: pre-wrap; }
         </rect>
        </property>
       </widget>
-      <widget class="QWidget" name="layoutWidget">
+      <widget class="QWidget" name="layoutWidget_8">
        <property name="geometry">
         <rect>
          <x>770</x>
@@ -651,20 +651,6 @@ p, li { white-space: pre-wrap; }
          <widget class="QPushButton" name="buttonCmdAdd">
           <property name="text">
            <string>New</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="buttonCmdDel">
-          <property name="text">
-           <string>Delete</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="buttonCmdSave">
-          <property name="text">
-           <string>Save</string>
           </property>
          </widget>
         </item>
@@ -707,7 +693,7 @@ p, li { white-space: pre-wrap; }
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>
-  <include location="resources.qrc"/>
+  <include location="../resources.qrc"/>
  </resources>
  <connections/>
 </ui>

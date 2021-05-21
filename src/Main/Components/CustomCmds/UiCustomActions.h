@@ -12,7 +12,7 @@
 #include <QItemSelectionModel>
 
 #include "src/Json/JsonHandler.h"
-#include "src/Main/Components/CustomCmds/DialogCustomActions.h"
+#include "Dialog/DialogCustomAction.h"
 
 
 class UiCustomActions : public QObject
@@ -34,26 +34,23 @@ public:
 
 
     /**
+     * @brief setupControlPanel
+     * @param btnAdd
+     */
+    void setupControlPanel(QPushButton* btnAdd);
+
+
+    /**
      * @brief updateViewTable
      */
     void updateViewTable();
 
-
-    /**
-     * @brief setupControlPanel
-     * @param btnAdd
-     * @param btnDel
-     * @param btnSave
-     */
-    void setupControlPanel(
-            QPushButton* btnAdd, 
-            QPushButton* btnDel, 
-            QPushButton* btnSave);
-
-    
-    QPushButton* addSendBtnToTableview(int id, JsonHandler& json);
-
-    QPushButton* addEditBtnToTableview(int id, JsonHandler& json);
+private:
+    QPushButton*
+    createTableviewItemBtn(
+        int id = 0,
+        QString name = "",
+        QString cmd = "");
 
 public:
     QList<QPair<QString, QString>> actions;
@@ -64,7 +61,7 @@ private:
     QItemSelectionModel*    theSelection;
 
 private:
-    DialogCustomActions*    dialog;
+    DialogCustomAction*     dialog;
 
 protected slots:
 
@@ -87,11 +84,6 @@ protected slots:
      * @brief onModifyCommand
      */
     void onModifyCommand();
-
-    /**
-     * @brief onSaveCommand
-     */
-    void onSaveCommand();
 };
 
 #endif // UICUSTOMACTIONS_H

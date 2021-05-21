@@ -21,7 +21,8 @@ SOURCES +=  \
     src/Json/JsonHandler.cpp \
     src/Main/Components/Calibration/CalibFeedbackProcedure.cpp \
     src/Main/Components/Calibration/UiCalibrationCheck.cpp \
-    src/Main/Components/CustomCmds/DialogCustomActions.cpp \
+    src/Main/Components/CustomCmds/Dialog/DialogCustomAction.cpp \
+    src/Main/Components/CustomCmds/JsonParementer.cpp \
     src/Main/Components/CustomCmds/UiCustomActions.cpp \
     src/Main/Components/DefaultControls/UiMotionControl.cpp \
     src/Main/Components/Serials/SerialConnectionPreference.cpp \
@@ -79,7 +80,8 @@ HEADERS +=  \
     src/Json/rapidjson/writer.h \
     src/Main/Components/Calibration/CalibFeedbackProcedure.h \
     src/Main/Components/Calibration/UiCalibrationCheck.h \
-    src/Main/Components/CustomCmds/DialogCustomActions.h \
+    src/Main/Components/CustomCmds/Dialog/DialogCustomAction.h \
+    src/Main/Components/CustomCmds/JsonParementer.h \
     src/Main/Components/CustomCmds/UiCustomActions.h \
     src/Main/Components/DefaultControls/UiMotionControl.h \
     src/Main/Components/Serials/SerialConnectionPreference.h \
@@ -90,7 +92,7 @@ HEADERS +=  \
 
 
 FORMS += \
-    ui/DialogCustomActions.ui \
+    ui/DialogCustomAction.ui \
     ui/MainWindow.ui
 
 # Default rules for deployment.

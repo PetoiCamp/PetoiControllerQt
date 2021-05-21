@@ -1,11 +1,11 @@
-#include "DialogCustomActions.h"
-#include "ui_DialogCustomActions.h"
+#include "DialogCustomAction.h"
+#include "ui_DialogCustomAction.h"
 #include "src/Main/MainWindow.h"
 
 #include <QDebug>
 
 
-DialogCustomActions::DialogCustomActions(QWidget *parent) :
+DialogCustomAction::DialogCustomAction(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::DialogCustomActions)
 {
@@ -19,13 +19,13 @@ DialogCustomActions::DialogCustomActions(QWidget *parent) :
 }
 
 
-DialogCustomActions::~DialogCustomActions()
+DialogCustomAction::~DialogCustomAction()
 {
     delete ui;
 }
 
 
-void DialogCustomActions::setDialogStatus(DialogCustomStatus changeStatus,
+void DialogCustomAction::setDialogStatus(DialogCustomStatus changeStatus,
                                           int id,
                                           QString name,
                                           QString cmd) {
@@ -39,7 +39,7 @@ void DialogCustomActions::setDialogStatus(DialogCustomStatus changeStatus,
 };
 
 
-void DialogCustomActions::onOkBtnPressed() {
+void DialogCustomAction::onOkBtnPressed() {
 
     lineName = ui->lineEditName->text();
     lineCommand  = ui->lineEditCommand->text();
@@ -67,7 +67,7 @@ void DialogCustomActions::onOkBtnPressed() {
 }
 
 
-std::vector<std::string> DialogCustomActions::addNewItem(QString name, QString cmd) {
+std::vector<std::string> DialogCustomAction::addNewItem(QString name, QString cmd) {
     // get items from json file
 //    std::vector<std::string> entities =
 //            MainWindow::uiCustomActions.handler
@@ -84,7 +84,7 @@ std::vector<std::string> DialogCustomActions::addNewItem(QString name, QString c
 }
 
 
-std::vector<std::string> DialogCustomActions::modifyItem(int id, QString name, QString cmd) {
+std::vector<std::string> DialogCustomAction::modifyItem(int id, QString name, QString cmd) {
     // get items from json file
 //    std::vector<std::string> entities =
 //            MainWindow::uiCustomActions.handler

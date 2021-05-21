@@ -1,5 +1,5 @@
-#ifndef DIALOGCUSTOMACTIONS_H
-#define DIALOGCUSTOMACTIONS_H
+#ifndef DIALOGCUSTOMACTION_H
+#define DIALOGCUSTOMACTION_H
 
 #include <QDialog>
 #include <QString>
@@ -13,7 +13,7 @@ enum DialogCustomStatus {
     ModifyItem,
 };
 
-class DialogCustomActions : public QDialog
+class DialogCustomAction : public QDialog
 {
     Q_OBJECT
 
@@ -23,9 +23,9 @@ class DialogCustomActions : public QDialog
     int     itemId;
 
 public:
-    explicit DialogCustomActions(QWidget *parent = nullptr);
+    explicit DialogCustomAction(QWidget *parent = nullptr);
 
-    ~DialogCustomActions();
+    ~DialogCustomAction();
 
     void setDialogStatus(DialogCustomStatus changeStatus,
             int id = 0,
@@ -46,4 +46,4 @@ private:
     Ui::DialogCustomActions *ui;
 };
 
-#endif // DIALOGCUSTOMACTIONS_H
+#endif // DIALOGCUSTOMACTION_H
