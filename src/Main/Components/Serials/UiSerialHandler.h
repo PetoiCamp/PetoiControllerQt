@@ -1,7 +1,7 @@
 #ifndef UISERIALHANDLER_H
 #define UISERIALHANDLER_H
 
-#include "Serial/QSerialMessageQueue.h"
+#include "src/Serial/QSerialMessageQueue.h"
 
 /// Qt UI ///
 #include <QComboBox>
@@ -23,7 +23,7 @@ class UiSerialHandler: public QObject
 private:
     QTimer                                          timer;
     QSerialMessageQueue                             queue;
-    QTextBrowser*                                   textview_ptr;
+    QList<QTextBrowser*>                            textviews;
 
     QList<QPair<QString, qint32>>                   serialBaudRatesList;
     QList<QPair<QString, QSerialPort::DataBits>>    serialDataBitsList;
@@ -76,18 +76,16 @@ public:
      * @param stopbits
      * @param parity
      */
-    void connectSerial(QString port, int baud, int databits, int stopbits, int parity);
+    bool connectSerial(QString port, int baud, int databits, int stopbits, int parity);
 
     /**
      * @brief disconnectSerial
      */
     void disconnectSerial();
 
-    /**
-     * @brief setFeedbackTextview
-     * @param browser
-     */
-    void bindFeedbackTextview(QTextBrowser* browser);
+
+    void bindFeedbackTextview(QList<QTextBrowser*> browsers);
+
 
     /**
      * @brief unbindFeedbackTextview

@@ -34,6 +34,9 @@ public:
     // touch
     static void touch(const QString path);
 
+    // remove
+    static void remove(const QString path);
+
     // trunk, e.g. /home/user/Desktop/file.txt -> /home/user/Desktop/
     static QString trunk(const QString path);
 };

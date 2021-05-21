@@ -23,10 +23,10 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>PetoiControllerQt v0.2.1a</string>
+   <string>PetoiControllerQt v0.2.3a</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="resources.qrc">
+   <iconset resource="../resources.qrc">
     <normaloff>:/app/pic/logo.icns</normaloff>:/app/pic/logo.icns</iconset>
   </property>
   <widget class="QWidget" name="centralWidget">
@@ -40,7 +40,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="tabSerial">
      <attribute name="title">
@@ -400,7 +400,7 @@
       <property name="title">
        <string>Terminal</string>
       </property>
-      <widget class="QWidget" name="layoutWidget">
+      <widget class="QWidget" name="layoutWidget_6">
        <property name="geometry">
         <rect>
          <x>10</x>
@@ -465,7 +465,7 @@
       <property name="title">
        <string>Default Actions</string>
       </property>
-      <widget class="QWidget" name="layoutWidget">
+      <widget class="QWidget" name="layoutWidget_7">
        <property name="geometry">
         <rect>
          <x>11</x>
@@ -618,15 +618,61 @@ p, li { white-space: pre-wrap; }
      <widget class="QGroupBox" name="groupBoxCustomActions">
       <property name="geometry">
        <rect>
-        <x>10</x>
+        <x>0</x>
         <y>210</y>
         <width>951</width>
         <height>391</height>
        </rect>
       </property>
       <property name="title">
-       <string>GroupBox</string>
+       <string>Custom Commands</string>
       </property>
+      <widget class="QTableView" name="tableCustomActions">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>60</y>
+         <width>611</width>
+         <height>321</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QTextBrowser" name="textTerminalOutput2">
+       <property name="geometry">
+        <rect>
+         <x>660</x>
+         <y>60</y>
+         <width>281</width>
+         <height>321</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label">
+       <property name="geometry">
+        <rect>
+         <x>660</x>
+         <y>30</y>
+         <width>60</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Serial Output</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="buttonCmdAdd">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>20</y>
+         <width>70</width>
+         <height>32</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>New</string>
+       </property>
+      </widget>
      </widget>
     </widget>
    </widget>
@@ -664,7 +710,7 @@ p, li { white-space: pre-wrap; }
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>
-  <include location="resources.qrc"/>
+  <include location="../resources.qrc"/>
  </resources>
  <connections/>
 </ui>

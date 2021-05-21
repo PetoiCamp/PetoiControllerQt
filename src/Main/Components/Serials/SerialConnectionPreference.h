@@ -3,27 +3,23 @@
 
 #include <QComboBox>
 
-#include "JsonHandler.h"
+#include "src/Json/JsonHandler.h"
 
 
 class SerialConnectionPreference
 {
 public:
-    static void getPreferences(
+    static void getPreference(
         QComboBox *ports, QComboBox *baud,
         QComboBox *parity, QComboBox *dataBits,
         QComboBox *stopBits
     );
 
-    static void setPreferences(
+    static void setPreference(
         QComboBox *ports, QComboBox *baud,
         QComboBox *parity, QComboBox *dataBits,
         QComboBox *stopBits
     );
-
-
-private:
-    static JsonHandler handler;
 };
 
 #endif // SERIALCONNECTIONPREFERENCE_H

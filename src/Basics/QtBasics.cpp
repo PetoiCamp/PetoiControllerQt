@@ -83,7 +83,6 @@ void QtBasics::mkdir(const QString path) {
 
 
 void QtBasics::touch(const QString path) {
-    QDir dir(path);
 
     // if root path is not exist
     auto trunk_path = trunk(path);
@@ -107,3 +106,9 @@ QString QtBasics::trunk(const QString path) {
 
     return fi.path();
 };
+
+
+void QtBasics::remove(const QString path) {
+    QFile qzFile(path);
+    qzFile.remove();
+}

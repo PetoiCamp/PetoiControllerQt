@@ -1,9 +1,10 @@
 #include "MainWindow.h"
-#include "ui_mainwindow.h"
+#include "ui_MainWindow.h"
 
-#include "Config/SerialConnectionPreference.h"
+#include "Components/Serials/SerialConnectionPreference.h"
 
 #include <QMessageBox>
+
 
 
 void MainWindow::bindQtSlots() {
@@ -91,7 +92,7 @@ void MainWindow::onSerialRefresh() {
                 ui->boxStopBits);
 
     // set selections to default
-    SerialConnectionPreference::getPreferences(
+    SerialConnectionPreference::getPreference(
                 ui->boxPortNumber,
                 ui->boxBaudRate,
                 ui->boxParity,
@@ -104,7 +105,7 @@ void MainWindow::onSerialConnection() {
     if (ui->buttonConnect->text() == tr("Connect")) {
 
         // save selections
-        SerialConnectionPreference::setPreferences(
+        SerialConnectionPreference::setPreference(
                     ui->boxPortNumber,
                     ui->boxBaudRate,
                     ui->boxParity,
@@ -115,20 +116,31 @@ void MainWindow::onSerialConnection() {
         ui->buttonConnect->setText(tr("Disconnect"));
 
         // connect to the serial port
-        uiSerialHandler.connectSerial(
+        if (uiSerialHandler.connectSerial(
                     ui->boxPortNumber->currentText(),
                     ui->boxBaudRate->currentIndex(),
                     ui->boxDataBits->currentIndex(),
                     ui->boxStopBits->currentIndex(),
-                    ui->boxParity->currentIndex());
+                    ui->boxParity->currentIndex())) {
 
-        // bind textbrowser
-        uiSerialHandler.bindFeedbackTextview(ui->textTerminalOutput);
+            // bind textbrowser
+            QList<QTextBrowser*> browser;
+            browser.push_back(ui->textTerminalOutput);
+            browser.push_back(ui->textTerminalOutput2);
+            uiSerialHandler.bindFeedbackTextview(browser);
 
-        // switch widgets' status
-        isSerialOn = isActionsOn = true;
-        switchSerial();
-        switchActions();
+
+            // switch widgets' status
+            isSerialOn = isDefActionsOn = isCusActionOn = true;
+            switchSerial();
+            switchDefaultActions();
+            switchCustomActions();
+        } else {
+            QMessageBox::critical(this, tr("Unable to connect the device!"),
+                                  tr("The device may offline or busy"),
+                                  QMessageBox::Ok);
+        }
+
     }
 
     else if (ui->buttonConnect->text() == tr("Disconnect")) {
@@ -143,9 +155,10 @@ void MainWindow::onSerialConnection() {
         uiSerialHandler.unbindFeedbackTextview();
 
         // switch widgets' status
-        isSerialOn = isActionsOn = false;
+        isSerialOn = isDefActionsOn = isCusActionOn = false;
         switchSerial();
-        switchActions();
+        switchDefaultActions();
+        switchCustomActions();
     }
 }
 
