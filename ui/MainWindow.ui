@@ -23,7 +23,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>PetoiControllerQt v0.2.1a</string>
+   <string>PetoiControllerQt v0.2.3a</string>
   </property>
   <property name="windowIcon">
    <iconset resource="../resources.qrc">
