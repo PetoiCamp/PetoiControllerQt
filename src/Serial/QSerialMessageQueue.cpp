@@ -6,7 +6,7 @@
 QSerialMessageQueue::QSerialMessageQueue(QObject *parent) : QObject(parent), serial() {}
 
 
-void QSerialMessageQueue::connect(
+bool QSerialMessageQueue::connect(
         QString portName,
         qint32 baudRate,
         QSerialPort::DataBits dataBits,
@@ -20,10 +20,15 @@ void QSerialMessageQueue::connect(
     serial.setParity(parity);
 
     // connect to remote device via serial port
-    serial.open(QIODevice::ReadWrite);
+    if (serial.open(QIODevice::ReadWrite)) {
 
-    // connect to qt signal/slot
-    QObject::connect(&serial, SIGNAL(readyRead()), this, SLOT(onSerialAutoRecv()));
+        // connect to qt signal/slot
+        QObject::connect(&serial, SIGNAL(readyRead()), this, SLOT(onSerialAutoRecv()));
+
+        return true;
+    } else {
+        return false;
+    }
 }
 
 

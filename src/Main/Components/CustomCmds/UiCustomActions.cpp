@@ -42,9 +42,6 @@ void UiCustomActions::setupViewTable(QTableView *view) {
         theView = view;
         theView->setModel(theModel);
 
-        // clear all
-        theModel->clear();
-
         // scroll bar off
         theView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     }
@@ -63,9 +60,6 @@ void UiCustomActions::setupViewTable(QTableView *view) {
 
     // disable user-editing
     theView->setEditTriggers(QAbstractItemView::NoEditTriggers);
-
-    // auto-fit
-    theView->resizeColumnsToContents();
 }
 
 
@@ -78,6 +72,8 @@ void UiCustomActions::setupControlPanel(
 
 
 void UiCustomActions::updateViewTable() {
+    // clear all
+    theModel->clear();
 
     // set columns
     QStringList columnTitles;
@@ -95,11 +91,9 @@ void UiCustomActions::updateViewTable() {
         theModel->setItem(i, 2, new QStandardItem(iter->second));
 
         // the item's related buttons
-        auto sendBtn = createTableviewItemBtn(
-                    i, "Send",
-                    iter->second);
-        auto editBtn = createTableviewItemBtn(i, "Edit");
-        auto deltBtn = createTableviewItemBtn(i, "Delete");
+        auto sendBtn = createTableviewItemBtn(i, "Send", iter->first, iter->second);
+        auto editBtn = createTableviewItemBtn(i, "Edit", iter->first, iter->second);
+        auto deltBtn = createTableviewItemBtn(i, "Delete", iter->first, iter->second);
 
         // add buttons to the table's row
         QWidget* temp = new QWidget;
@@ -108,24 +102,28 @@ void UiCustomActions::updateViewTable() {
         layout->addWidget(editBtn);
         layout->addWidget(deltBtn);
         layout->setMargin(0);
-        theView->setIndexWidget(theModel->index(i, 3), temp);
+        theView->setIndexWidget(theModel->index(i, 3), temp); // may cause mem leaks?
 
         // connect
         connect(sendBtn, SIGNAL(clicked(bool)), this, SLOT(onSendCommand()));
         connect(editBtn, SIGNAL(clicked(bool)), this, SLOT(onModifyCommand()));
         connect(deltBtn, SIGNAL(clicked(bool)), this, SLOT(onDeleteCommand()));
     }
+
+    // auto-fit
+    theView->resizeColumnsToContents();
 }
 
 
 QPushButton*
 UiCustomActions::createTableviewItemBtn(
         int id,
+        QString btn,
         QString name,
         QString cmd) {
 
     // add button to the column
-    QPushButton *button = new QPushButton(name);
+    QPushButton *button = new QPushButton(btn);
 
     // store some values to button's property
     button->setProperty("cmd", cmd);
@@ -146,18 +144,32 @@ void UiCustomActions::onSendCommand() {
 
 
 void UiCustomActions::onAddCommand() {
-    qDebug() << "onAddCommand";
-    //TODO
+    dialog->setDialogValues(::AddItem);
+    dialog->show();
 }
 
 
 void UiCustomActions::onDeleteCommand() {
-    qDebug() << "onDeleteCommand";
-    //TODO
+
+    // get values from the button's property
+    QPushButton *btn = qobject_cast<QPushButton*>(sender());
+    int id = btn->property("id").toInt();
+
+    // remove item by id
+    actions.removeAt(id);
+
+    // reload the table
+    updateViewTable();
 }
 
 
 void UiCustomActions::onModifyCommand() {
-    qDebug() << "onModifyCommand";
-    //TODO
+    QPushButton *btn = qobject_cast<QPushButton*>(sender());
+
+    int id = btn->property("id").toInt();
+    QString cmd = btn->property("cmd").toString();
+    QString name = btn->property("name").toString();
+
+    dialog->setDialogValues(::ModifyItem, id, name, cmd);
+    dialog->show();
 }

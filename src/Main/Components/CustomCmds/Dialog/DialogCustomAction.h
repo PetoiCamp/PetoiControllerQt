@@ -3,6 +3,8 @@
 
 #include <QDialog>
 #include <QString>
+#include <QList>
+#include <QPair>
 
 namespace Ui {
 class DialogCustomActions;
@@ -27,16 +29,29 @@ public:
 
     ~DialogCustomAction();
 
-    void setDialogStatus(DialogCustomStatus changeStatus,
+    /**
+     * @brief setDialogStatus
+     * @param changeStatus
+     * @param id
+     * @param name
+     * @param cmd
+     */
+    void setDialogValues(DialogCustomStatus changeStatus,
             int id = 0,
             QString name = "",
             QString cmd = "");
 
     
-    std::vector<std::string> addNewItem(QString name, QString cmd);
+private:
 
+    void addNewItem(
+        QString name, 
+        QString cmd);
 
-    std::vector<std::string> modifyItem(int id, QString name, QString cmd);
+    void modifyItem(
+        int id, 
+        QString name, 
+        QString cmd);
 
 protected slots:
 

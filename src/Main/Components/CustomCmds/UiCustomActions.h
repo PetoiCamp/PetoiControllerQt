@@ -49,6 +49,7 @@ private:
     QPushButton*
     createTableviewItemBtn(
         int id = 0,
+        QString btn = "",
         QString name = "",
         QString cmd = "");
 

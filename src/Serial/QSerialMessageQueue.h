@@ -42,7 +42,7 @@ public:
      * @param stopBits
      * @param parity
      */
-    void connect(QString portName,
+    bool connect(QString portName,
                  qint32 baudRate,
                  QSerialPort::DataBits dataBits,
                  QSerialPort::StopBits stopBits,

@@ -2,173 +2,191 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="zh">
 <context>
+    <name>DialogCustomActions</name>
+    <message>
+        <location filename="ui/DialogCustomAction.ui" line="26"/>
+        <source>Command Editor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="ui/DialogCustomAction.ui" line="61"/>
+        <source>Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="ui/DialogCustomAction.ui" line="81"/>
+        <source>Command</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MainWindow</name>
     <message>
-        <location filename="mainwindow.ui" line="26"/>
+        <location filename="ui/MainWindow.ui" line="26"/>
         <source>PetoiControllerQt v0.2.1a</source>
         <oldsource>PetoiControllerQt</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="47"/>
+        <location filename="ui/MainWindow.ui" line="47"/>
         <source>Serial</source>
         <translation>串口配置</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="69"/>
+        <location filename="ui/MainWindow.ui" line="69"/>
         <source>Serial Connection</source>
         <translation>串口连接</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="88"/>
+        <location filename="ui/MainWindow.ui" line="88"/>
         <source>Port Name</source>
         <translation>串口号</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="109"/>
+        <location filename="ui/MainWindow.ui" line="109"/>
         <source>Baud Rate</source>
         <translation>波特率</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="130"/>
+        <location filename="ui/MainWindow.ui" line="130"/>
         <source>Stop Bits</source>
         <translation>停止位</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="151"/>
+        <location filename="ui/MainWindow.ui" line="151"/>
         <source>Data Bits</source>
         <translation>数据位</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="172"/>
+        <location filename="ui/MainWindow.ui" line="172"/>
         <source>Parity</source>
         <translation>奇偶性</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="211"/>
-        <location filename="src/MainWindow_apx.cpp" line="104"/>
-        <location filename="src/MainWindow_apx.cpp" line="137"/>
+        <location filename="ui/MainWindow.ui" line="211"/>
+        <location filename="src/Main/MainWindow_apx.cpp" line="105"/>
+        <location filename="src/Main/MainWindow_apx.cpp" line="145"/>
         <source>Connect</source>
         <translation>连结</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="236"/>
+        <location filename="ui/MainWindow.ui" line="236"/>
         <source>Refresh</source>
         <translation>刷新</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="250"/>
-        <location filename="mainwindow.ui" line="325"/>
+        <location filename="ui/MainWindow.ui" line="250"/>
+        <location filename="ui/MainWindow.ui" line="325"/>
         <source>Calibration</source>
         <translation>校准</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="278"/>
+        <location filename="ui/MainWindow.ui" line="278"/>
         <source>Clean</source>
         <translation>清零</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="295"/>
+        <location filename="ui/MainWindow.ui" line="295"/>
         <source>Save</source>
         <translation>保存</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="356"/>
+        <location filename="ui/MainWindow.ui" line="356"/>
         <source>+</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="373"/>
+        <location filename="ui/MainWindow.ui" line="373"/>
         <source>-</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="401"/>
+        <location filename="ui/MainWindow.ui" line="401"/>
         <source>Terminal</source>
         <translation>控制台</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="440"/>
+        <location filename="ui/MainWindow.ui" line="440"/>
         <source>Send</source>
         <translation>发送</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="454"/>
+        <location filename="ui/MainWindow.ui" line="454"/>
         <source>Actions</source>
         <translation>动作</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="466"/>
+        <location filename="ui/MainWindow.ui" line="466"/>
         <source>Default Actions</source>
         <translation>默认动作</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="483"/>
+        <location filename="ui/MainWindow.ui" line="483"/>
         <source>Stretch</source>
         <translation>伸展</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="490"/>
+        <location filename="ui/MainWindow.ui" line="490"/>
         <source>Hip Up</source>
         <translation>撅屁股</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="497"/>
+        <location filename="ui/MainWindow.ui" line="497"/>
         <source>Look Around</source>
         <translation>四周张望</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="508"/>
+        <location filename="ui/MainWindow.ui" line="508"/>
         <source>Greeting</source>
         <translation>打招呼</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="515"/>
+        <location filename="ui/MainWindow.ui" line="515"/>
         <source>Pee</source>
         <translation>撒尿</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="522"/>
+        <location filename="ui/MainWindow.ui" line="522"/>
         <source>Pushup</source>
         <translation>俯卧撑</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="533"/>
+        <location filename="ui/MainWindow.ui" line="533"/>
         <source>Sit Down</source>
         <translation>坐下</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="540"/>
+        <location filename="ui/MainWindow.ui" line="540"/>
         <source>Sleep</source>
         <translation>睡觉</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="547"/>
+        <location filename="ui/MainWindow.ui" line="547"/>
         <source>Rest</source>
         <translation>休息</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="558"/>
+        <location filename="ui/MainWindow.ui" line="558"/>
         <source>Stepping</source>
         <translation>原地踏步</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="565"/>
+        <location filename="ui/MainWindow.ui" line="565"/>
         <source>Back Flip</source>
         <translation>后空翻</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="572"/>
+        <location filename="ui/MainWindow.ui" line="572"/>
         <source>Bunny Jump</source>
         <translation>兔子跳</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="591"/>
+        <location filename="ui/MainWindow.ui" line="591"/>
         <source>Bittle Control</source>
         <translation>Bittle控制命令</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="603"/>
+        <location filename="ui/MainWindow.ui" line="603"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
@@ -184,74 +202,89 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="628"/>
-        <source>GroupBox</source>
+        <location filename="ui/MainWindow.ui" line="628"/>
+        <source>Custom Commands</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="647"/>
+        <location filename="ui/MainWindow.ui" line="653"/>
+        <source>New</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="ui/MainWindow.ui" line="676"/>
         <source>Language</source>
         <translation>语言项</translation>
     </message>
     <message>
-        <location filename="src/MainWindow_apx.cpp" line="115"/>
-        <location filename="src/MainWindow_apx.cpp" line="134"/>
+        <location filename="src/Main/MainWindow_apx.cpp" line="116"/>
+        <location filename="src/Main/MainWindow_apx.cpp" line="142"/>
         <source>Disconnect</source>
         <translation>断开</translation>
     </message>
     <message>
-        <location filename="src/MainWindow_apx.cpp" line="179"/>
-        <location filename="src/MainWindow_apx.cpp" line="189"/>
+        <location filename="src/Main/MainWindow_apx.cpp" line="135"/>
+        <source>Unable to connect the device!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/Main/MainWindow_apx.cpp" line="136"/>
+        <source>The device may offline or busy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/Main/MainWindow_apx.cpp" line="188"/>
+        <location filename="src/Main/MainWindow_apx.cpp" line="198"/>
         <source>Unable to adjust fine angle!</source>
         <translation>无法进一步精调舵机</translation>
     </message>
     <message>
-        <location filename="src/MainWindow_apx.cpp" line="180"/>
+        <location filename="src/Main/MainWindow_apx.cpp" line="189"/>
         <source>Because you have reached the maximum angle</source>
         <translation>你已经达到最大可调角度</translation>
     </message>
     <message>
-        <location filename="src/MainWindow_apx.cpp" line="190"/>
+        <location filename="src/Main/MainWindow_apx.cpp" line="199"/>
         <source>Because you have reached the minimum angle</source>
         <translation>你已经达到最小可调角度</translation>
     </message>
     <message>
-        <location filename="src/MainWindow_ui.cpp" line="233"/>
+        <location filename="src/Main/MainWindow_ui.cpp" line="255"/>
         <source>&amp;File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/MainWindow_ui.cpp" line="234"/>
+        <location filename="src/Main/MainWindow_ui.cpp" line="256"/>
         <source>&amp;Language</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/MainWindow_ui.cpp" line="236"/>
+        <location filename="src/Main/MainWindow_ui.cpp" line="258"/>
         <source>&amp;Chinese</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/MainWindow_ui.cpp" line="236"/>
+        <location filename="src/Main/MainWindow_ui.cpp" line="258"/>
         <source>Ctrl+[</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/MainWindow_ui.cpp" line="237"/>
+        <location filename="src/Main/MainWindow_ui.cpp" line="259"/>
         <source>&amp;English</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/MainWindow_ui.cpp" line="237"/>
+        <location filename="src/Main/MainWindow_ui.cpp" line="259"/>
         <source>Ctrl+]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/MainWindow_ui.cpp" line="242"/>
+        <location filename="src/Main/MainWindow_ui.cpp" line="264"/>
         <source>&amp;Exit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/MainWindow_ui.cpp" line="242"/>
+        <location filename="src/Main/MainWindow_ui.cpp" line="264"/>
         <source>Ctrl+Q</source>
         <translation type="unfinished"></translation>
     </message>
@@ -259,47 +292,47 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>UiCalibrationCheck</name>
     <message>
-        <location filename="src/UiCalibrationCheck.cpp" line="17"/>
+        <location filename="src/Main/Components/Calibration/UiCalibrationCheck.cpp" line="17"/>
         <source>0</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/UiCalibrationCheck.cpp" line="20"/>
+        <location filename="src/Main/Components/Calibration/UiCalibrationCheck.cpp" line="20"/>
         <source>8</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/UiCalibrationCheck.cpp" line="21"/>
+        <location filename="src/Main/Components/Calibration/UiCalibrationCheck.cpp" line="21"/>
         <source>9</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/UiCalibrationCheck.cpp" line="22"/>
+        <location filename="src/Main/Components/Calibration/UiCalibrationCheck.cpp" line="22"/>
         <source>10</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/UiCalibrationCheck.cpp" line="23"/>
+        <location filename="src/Main/Components/Calibration/UiCalibrationCheck.cpp" line="23"/>
         <source>11</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/UiCalibrationCheck.cpp" line="26"/>
+        <location filename="src/Main/Components/Calibration/UiCalibrationCheck.cpp" line="26"/>
         <source>12</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/UiCalibrationCheck.cpp" line="27"/>
+        <location filename="src/Main/Components/Calibration/UiCalibrationCheck.cpp" line="27"/>
         <source>13</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/UiCalibrationCheck.cpp" line="28"/>
+        <location filename="src/Main/Components/Calibration/UiCalibrationCheck.cpp" line="28"/>
         <source>14</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/UiCalibrationCheck.cpp" line="29"/>
+        <location filename="src/Main/Components/Calibration/UiCalibrationCheck.cpp" line="29"/>
         <source>15</source>
         <translation type="unfinished"></translation>
     </message>
@@ -307,17 +340,17 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>UiSerialHandler</name>
     <message>
-        <location filename="src/UiSerialHandler.cpp" line="204"/>
+        <location filename="src/Main/Components/Serials/UiSerialHandler.cpp" line="204"/>
         <source>None</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/UiSerialHandler.cpp" line="205"/>
+        <location filename="src/Main/Components/Serials/UiSerialHandler.cpp" line="205"/>
         <source>Odd</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/UiSerialHandler.cpp" line="206"/>
+        <location filename="src/Main/Components/Serials/UiSerialHandler.cpp" line="206"/>
         <source>Even</source>
         <translation type="unfinished"></translation>
     </message>

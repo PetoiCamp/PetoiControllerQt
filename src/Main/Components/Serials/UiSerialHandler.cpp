@@ -70,7 +70,7 @@ void UiSerialHandler::clearSerialParametersSelections(
 };
 
 
-void UiSerialHandler::connectSerial(QString port, int baud,
+bool UiSerialHandler::connectSerial(QString port, int baud,
                               int databits, int stopbits, int parity) {
 
     qint32                  baudRate = serialBaudRatesList[baud].second;
@@ -79,7 +79,7 @@ void UiSerialHandler::connectSerial(QString port, int baud,
     QSerialPort::Parity     parties = serialParitiesList[parity].second;
 
     // connect to the serial port
-    queue.connect(port, baudRate, dataBits, stopBits, parties);
+    return queue.connect(port, baudRate, dataBits, stopBits, parties);
 };
 
 

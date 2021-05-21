@@ -76,7 +76,7 @@ public:
      * @param stopbits
      * @param parity
      */
-    void connectSerial(QString port, int baud, int databits, int stopbits, int parity);
+    bool connectSerial(QString port, int baud, int databits, int stopbits, int parity);
 
     /**
      * @brief disconnectSerial
