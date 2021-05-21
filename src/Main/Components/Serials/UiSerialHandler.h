@@ -1,7 +1,7 @@
 #ifndef UISERIALHANDLER_H
 #define UISERIALHANDLER_H
 
-#include "Serial/QSerialMessageQueue.h"
+#include "src/Serial/QSerialMessageQueue.h"
 
 /// Qt UI ///
 #include <QComboBox>

@@ -4,7 +4,7 @@
 #define PREFER_FILE "preference.json"
 #define FRAMES_FILE "actions.json"
 
-#include "JsonHandler.h"
+#include "src/Json/JsonHandler.h"
 #include <QString>
 
 namespace petoi {

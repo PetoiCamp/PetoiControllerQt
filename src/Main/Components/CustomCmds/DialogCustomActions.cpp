@@ -1,6 +1,6 @@
 #include "DialogCustomActions.h"
 #include "ui_DialogCustomActions.h"
-#include "MainWindow.h"
+#include "src/Main/MainWindow.h"
 
 #include <QDebug>
 
@@ -57,10 +57,10 @@ void DialogCustomActions::onOkBtnPressed() {
     }
 
     // clear all
-    MainWindow::uiCustomActions.handler.clear();
+//    MainWindow::uiCustomActions.handler.clear();
 
     // set new json string
-    MainWindow::uiCustomActions.handler.set_multi_json_lists("actions", entities);
+//    MainWindow::uiCustomActions.handler.set_multi_json_lists("actions", entities);
 
     // refresh table
     MainWindow::uiCustomActions.updateViewTable();
@@ -69,31 +69,33 @@ void DialogCustomActions::onOkBtnPressed() {
 
 std::vector<std::string> DialogCustomActions::addNewItem(QString name, QString cmd) {
     // get items from json file
-    std::vector<std::string> entities =
-            MainWindow::uiCustomActions.handler
-                .get_multi_json_lists("actions");
+//    std::vector<std::string> entities =
+//            MainWindow::uiCustomActions.handler
+//                .get_multi_json_lists("actions");
 
-    JsonHandler item;
-    item.set_string("name", name.toStdString());
-    item.set_string("cmd", cmd.toStdString());
+//    JsonHandler item;
+//    item.set_string("name", name.toStdString());
+//    item.set_string("cmd", cmd.toStdString());
 
-    entities.push_back(item.to_str());
+//    entities.push_back(item.to_str());
 
-    return entities;
+//    return entities;
+    return std::vector<std::string>();
 }
 
 
 std::vector<std::string> DialogCustomActions::modifyItem(int id, QString name, QString cmd) {
     // get items from json file
-    std::vector<std::string> entities =
-            MainWindow::uiCustomActions.handler
-                .get_multi_json_lists("actions");
+//    std::vector<std::string> entities =
+//            MainWindow::uiCustomActions.handler
+//                .get_multi_json_lists("actions");
 
-    JsonHandler item;
-    item.set_string("name", name.toStdString());
-    item.set_string("cmd", cmd.toStdString());
+//    JsonHandler item;
+//    item.set_string("name", name.toStdString());
+//    item.set_string("cmd", cmd.toStdString());
 
-    entities[id] = item.to_str();
+//    entities[id] = item.to_str();
 
-    return entities;
+//    return entities;
+    return std::vector<std::string>();
 }

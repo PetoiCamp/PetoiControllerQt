@@ -1,5 +1,5 @@
 #include "UiSerialHandler.h"
-#include "MainWindow.h"
+#include "src/Main/MainWindow.h"
 
 #include <QDebug>
 #include <QString>

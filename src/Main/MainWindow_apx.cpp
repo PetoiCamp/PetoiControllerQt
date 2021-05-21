@@ -1,9 +1,10 @@
 #include "MainWindow.h"
 #include "ui_mainwindow.h"
 
-#include "Config/SerialConnectionPreference.h"
+#include "Components/Serials/SerialConnectionPreference.h"
 
 #include <QMessageBox>
+
 
 
 void MainWindow::bindQtSlots() {

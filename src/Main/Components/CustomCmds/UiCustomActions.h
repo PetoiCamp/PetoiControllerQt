@@ -11,8 +11,8 @@
 #include <QStandardItemModel>
 #include <QItemSelectionModel>
 
-#include "src/Config/JsonHandler.h"
-#include "src/DialogCustomActions.h"
+#include "src/Json/JsonHandler.h"
+#include "src/Main/Components/CustomCmds/DialogCustomActions.h"
 
 
 class UiCustomActions : public QObject

@@ -1,7 +1,7 @@
 #include "MainWindow.h"
-#include "ui_mainwindow.h"
+#include "ui_MainWindow.h"
 
-#include "Config/SerialConnectionPreference.h"
+#include "Components/Serials/SerialConnectionPreference.h"
 
 #include <QDebug>
 

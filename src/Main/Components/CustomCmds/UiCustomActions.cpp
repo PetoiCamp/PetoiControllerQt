@@ -1,6 +1,6 @@
 #include "UiCustomActions.h"
 #include "src/Config/GlobalConfig.h"
-#include "src/MainWindow.h"
+#include "src/Main/MainWindow.h"
 
 #include <QStringList>
 #include <QDebug>
@@ -41,7 +41,7 @@ void UiCustomActions::setupViewTable(QTableView *view) {
     }
 
     // load json file
-    petoi::loadJson(handler, FRAMES_FILE);
+//    petoi::loadJson(handler, FRAMES_FILE);
 
     // setup list table
     updateViewTable();
@@ -80,33 +80,33 @@ void UiCustomActions::updateViewTable() {
     theModel->setHorizontalHeaderLabels(columnTitles);
 
     // get contents
-    std::vector<std::string> entities =
-            handler.get_multi_json_lists("actions");
+//    std::vector<std::string> entities =
+//            handler.get_multi_json_lists("actions");
 
-    for (size_t i = 0; i < entities.size(); i++) {
-        // parse json string
-        JsonHandler item;
-        item.from_json(entities[i]);
+//    for (size_t i = 0; i < entities.size(); i++) {
+//        // parse json string
+//        JsonHandler item;
+//        item.from_json(entities[i]);
 
-        // set name and command
-        auto name = item.has_item("name") ? item.get_string("name") : "unknown";
-        auto cmd = item.has_item("cmd") ? item.get_string("cmd") : "";
+//        // set name and command
+//        auto name = item.has_item("name") ? item.get_string("name") : "unknown";
+//        auto cmd = item.has_item("cmd") ? item.get_string("cmd") : "";
 
-        // add send button
-        auto sendBtn = addSendBtnToTableview(i, item);
+//        // add send button
+//        auto sendBtn = addSendBtnToTableview(i, item);
 
-        // add edit button
-        auto editBtn = addEditBtnToTableview(i, item);
+//        // add edit button
+//        auto editBtn = addEditBtnToTableview(i, item);
 
-        // set column
-        theModel->setItem(i, 0, new QStandardItem(QString::number(i)));
-        theModel->setItem(i, 1, new QStandardItem(QString(name)));
-        theModel->setItem(i, 2, new QStandardItem(QString(cmd)));
+//        // set column
+//        theModel->setItem(i, 0, new QStandardItem(QString::number(i)));
+//        theModel->setItem(i, 1, new QStandardItem(QString(name)));
+//        theModel->setItem(i, 2, new QStandardItem(QString(cmd)));
 
-        // insert button to last line
-        theView->setIndexWidget(theModel->index(i, 3), sendBtn);
-        theView->setIndexWidget(theModel->index(i, 4), editBtn);
-    }
+//        // insert button to last line
+//        theView->setIndexWidget(theModel->index(i, 3), sendBtn);
+//        theView->setIndexWidget(theModel->index(i, 4), editBtn);
+//    }
 }
 
 
@@ -189,6 +189,6 @@ void UiCustomActions::onModifyCommand() {
 
 
 void UiCustomActions::onSaveCommand() {
-    qDebug() << "onSaveCommand";
-    petoi::saveJson(handler, FRAMES_FILE);
+//    qDebug() << "onSaveCommand";
+//    petoi::saveJson(handler, FRAMES_FILE);
 }
