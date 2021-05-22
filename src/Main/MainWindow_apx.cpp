@@ -33,7 +33,7 @@ void MainWindow::bindQtSlots() {
     connect(ui->buttonPosPushUp, SIGNAL(clicked(bool)), this, SLOT(onPosPushup()));
     connect(ui->buttonPosRest, SIGNAL(clicked(bool)), this, SLOT(onPosRest()));
     connect(ui->buttonPosSit, SIGNAL(clicked(bool)), this, SLOT(onPosSitdown()));
-    connect(ui->buttonPosSleep, SIGNAL(clicked(bool)), this, SLOT(onPosSleep()));
+    connect(ui->buttonPosUp, SIGNAL(clicked(bool)), this, SLOT(onPosUpStair()));
     connect(ui->buttonPosStepping, SIGNAL(clicked(bool)), this, SLOT(onPosStepping()));
     connect(ui->buttonPosStretch, SIGNAL(clicked(bool)), this, SLOT(onPosStretch()));
 
@@ -67,7 +67,7 @@ void MainWindow::unbindQtSlots() {
     disconnect(ui->buttonPosPushUp, SIGNAL(clicked(bool)), this, SLOT(onPosPushup()));
     disconnect(ui->buttonPosRest, SIGNAL(clicked(bool)), this, SLOT(onPosRest()));
     disconnect(ui->buttonPosSit, SIGNAL(clicked(bool)), this, SLOT(onPosSitdown()));
-    disconnect(ui->buttonPosSleep, SIGNAL(clicked(bool)), this, SLOT(onPosSleep()));
+    disconnect(ui->buttonPosUp, SIGNAL(clicked(bool)), this, SLOT(onPosUpStair()));
     disconnect(ui->buttonPosStepping, SIGNAL(clicked(bool)), this, SLOT(onPosStepping()));
     disconnect(ui->buttonPosStretch, SIGNAL(clicked(bool)), this, SLOT(onPosStretch()));
 }
@@ -283,8 +283,8 @@ void MainWindow::onPosRest() {
 };
 
 
-void MainWindow::onPosSleep() {
-    uiMotionControl.doDefaultMotion(::PosSleep);
+void MainWindow::onPosUpStair() {
+    uiMotionControl.doDefaultMotion(::PosUpStair);
 
     if (uiMotionControl.isKeyListeningOn()) {
         uiMotionControl.stopKeyListen();

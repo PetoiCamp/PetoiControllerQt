@@ -125,24 +125,26 @@ void UiSerialHandler::onUpdateTextview() {
     // if browsers' count greater than 1
     if (textviews.count() < 1) return;
 
+    // trying to recv incoming message
+    char buffer[1024] = { 0 };
+    int result = queue.recvViaSerial((unsigned char*)buffer, 1024);
+
+    if (result <= 0) { return; /* nothing need to do */ }
+
     // update first
     QTextBrowser* browser = textviews[0];
 
     // update the browser's context
     QString plantText = browser->toPlainText();
-    char buffer[1024] = { 0 };
 
-    int result = queue.recvViaSerial((unsigned char*)buffer, 1024);
-    if (result > 0) {
+    // update output
+    QString feedback(buffer);
+    feedback = plantText + feedback;
+    browser->setText(feedback);
 
-        // update output
-        QString feedback(buffer);
-        feedback = plantText + feedback;
-        browser->setText(feedback);
-
-        if (isCalibrated) {
-            MainWindow::uiCalibration.updateCalibrationInfo(feedback);
-        }
+    // if calibration command sent
+    if (isCalibrated) {
+        MainWindow::uiCalibration.updateCalibrationInfo(feedback);
     }
 
     // synchronize the others
@@ -160,6 +162,8 @@ void UiSerialHandler::sendCmdViaSerialPort(QString cmd) {
 
     std::string msg = cmd.toStdString();
     queue.sendViaSerial((unsigned char*)msg.c_str(), msg.length());
+
+    qDebug() << "sent: " << cmd;
 
     // user sent "c"
     isCalibrated = msg == "c" ? true : false;

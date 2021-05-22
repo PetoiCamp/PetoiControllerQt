@@ -23,8 +23,8 @@
     <name>MainWindow</name>
     <message>
         <location filename="ui/MainWindow.ui" line="26"/>
-        <source>PetoiControllerQt v0.2.1a</source>
-        <oldsource>PetoiControllerQt</oldsource>
+        <source>PetoiControllerQt v0.2.3a</source>
+        <oldsource>PetoiControllerQt v0.2.1a</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -157,8 +157,12 @@
     </message>
     <message>
         <location filename="ui/MainWindow.ui" line="540"/>
+        <source>Up Stair</source>
+        <translation type="unfinished">上楼梯</translation>
+    </message>
+    <message>
         <source>Sleep</source>
-        <translation>睡觉</translation>
+        <translation type="vanished">睡觉</translation>
     </message>
     <message>
         <location filename="ui/MainWindow.ui" line="547"/>
@@ -254,42 +258,42 @@ p, li { white-space: pre-wrap; }
         <translation>你已经达到最小可调角度</translation>
     </message>
     <message>
-        <location filename="src/Main/MainWindow_ui.cpp" line="257"/>
+        <location filename="src/Main/MainWindow_ui.cpp" line="260"/>
         <source>&amp;File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/Main/MainWindow_ui.cpp" line="258"/>
+        <location filename="src/Main/MainWindow_ui.cpp" line="261"/>
         <source>&amp;Language</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/Main/MainWindow_ui.cpp" line="260"/>
+        <location filename="src/Main/MainWindow_ui.cpp" line="263"/>
         <source>&amp;Chinese</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/Main/MainWindow_ui.cpp" line="260"/>
+        <location filename="src/Main/MainWindow_ui.cpp" line="263"/>
         <source>Ctrl+[</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/Main/MainWindow_ui.cpp" line="261"/>
+        <location filename="src/Main/MainWindow_ui.cpp" line="264"/>
         <source>&amp;English</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/Main/MainWindow_ui.cpp" line="261"/>
+        <location filename="src/Main/MainWindow_ui.cpp" line="264"/>
         <source>Ctrl+]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/Main/MainWindow_ui.cpp" line="266"/>
+        <location filename="src/Main/MainWindow_ui.cpp" line="269"/>
         <source>&amp;Exit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/Main/MainWindow_ui.cpp" line="266"/>
+        <location filename="src/Main/MainWindow_ui.cpp" line="269"/>
         <source>Ctrl+Q</source>
         <translation type="unfinished"></translation>
     </message>
@@ -345,17 +349,17 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>UiSerialHandler</name>
     <message>
-        <location filename="src/Main/Components/Serials/UiSerialHandler.cpp" line="220"/>
+        <location filename="src/Main/Components/Serials/UiSerialHandler.cpp" line="224"/>
         <source>None</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/Main/Components/Serials/UiSerialHandler.cpp" line="221"/>
+        <location filename="src/Main/Components/Serials/UiSerialHandler.cpp" line="225"/>
         <source>Odd</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/Main/Components/Serials/UiSerialHandler.cpp" line="222"/>
+        <location filename="src/Main/Components/Serials/UiSerialHandler.cpp" line="226"/>
         <source>Even</source>
         <translation type="unfinished"></translation>
     </message>
