@@ -161,7 +161,7 @@ void MainWindow::switchDefaultActions() {
         ui->buttonPosPushUp->setEnabled(true);
         ui->buttonPosRest->setEnabled(true);
         ui->buttonPosSit->setEnabled(true);
-        ui->buttonPosSleep->setEnabled(true);
+        ui->buttonPosUp->setEnabled(true);
         ui->buttonPosStepping->setEnabled(true);
         ui->buttonPosStretch->setEnabled(true);
     } else {
@@ -174,7 +174,7 @@ void MainWindow::switchDefaultActions() {
         ui->buttonPosPushUp->setEnabled(false);
         ui->buttonPosRest->setEnabled(false);
         ui->buttonPosSit->setEnabled(false);
-        ui->buttonPosSleep->setEnabled(false);
+        ui->buttonPosUp->setEnabled(false);
         ui->buttonPosStepping->setEnabled(false);
         ui->buttonPosStretch->setEnabled(false);
     }
@@ -220,6 +220,9 @@ void MainWindow::keyPressEvent(QKeyEvent *event) {
         }
 
         uiMotionControl.procQtKeyPressedEvent(event);
+        break;
+
+    default:
         break;
     }
 }

@@ -27,9 +27,9 @@ UiCustomActions::~UiCustomActions() {
         delete  theModel;
     }
 
-    if (dialog) {
-        delete dialog;
-    }
+//    if (dialog) {
+//        delete dialog;
+//    }
 
     // save updated records to json file
     JsonParementer::saveCommands(actions);
