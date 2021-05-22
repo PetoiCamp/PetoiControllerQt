@@ -10,6 +10,7 @@
 
 #define STATUS_READY            0x00
 #define STATUS_STANDBY          0x01
+#define STATUS_NO_MOTION        0x0F
 
 #define STATUS_NORMAL_FORWARD   0x11
 #define STATUS_NORMAL_BACKWARD  0x12
@@ -37,7 +38,7 @@ enum DefinedMotions {
     PosPee,
     PosPushup,
     PosRest,
-    PosSleep,
+    PosUpStair,
     PosBackFlip,
     PosSitdown,
     PosBunnyJump,

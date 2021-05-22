@@ -40,7 +40,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tabSerial">
      <attribute name="title">
@@ -535,9 +535,9 @@
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="buttonPosSleep">
+           <widget class="QPushButton" name="buttonPosUp">
             <property name="text">
-             <string>Sleep</string>
+             <string>Up Stair</string>
             </property>
            </widget>
           </item>

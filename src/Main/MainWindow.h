@@ -70,7 +70,7 @@ public slots:
     void onPosPee();
     void onPosPushup();
     void onPosRest();
-    void onPosSleep();
+    void onPosUpStair();
     void onPosBackFlip();
     void onPosSitdown();
     void onPosBunnyJump();

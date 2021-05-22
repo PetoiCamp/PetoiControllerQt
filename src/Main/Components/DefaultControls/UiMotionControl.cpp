@@ -42,7 +42,7 @@ void UiMotionControl::doDefaultMotion(DefinedMotions motion) {
         MainWindow::uiSerialHandler.sendCmdViaSerialPort("krest");
         break;
 
-    case PosSleep:
+    case PosUpStair:
         MainWindow::uiSerialHandler.sendCmdViaSerialPort("kstp");
         break;
 
@@ -132,67 +132,67 @@ void UiMotionControl::usbDevicesEventCheck() {
         switch (updated) {
 
         case STATUS_CRAWL_FORWARD:
-            qDebug() << "status: crawl forward";
+//            qDebug() << "status: crawl forward";
             MainWindow::uiSerialHandler.sendCmdViaSerialPort("kcrF");
             break;
 
         case STATUS_CRAWL_BACKWARD:
-            qDebug() << "status: backward";
+//            qDebug() << "status: backward";
             MainWindow::uiSerialHandler.sendCmdViaSerialPort("kbk");
             break;
 
         case STATUS_CRAWL_LEFT:
-            qDebug() << "status: crawl left";
+//            qDebug() << "status: crawl left";
             MainWindow::uiSerialHandler.sendCmdViaSerialPort("kcrL");
             break;
 
         case STATUS_CRAWL_RIGHT:
-            qDebug() << "status: crawl right";
+//            qDebug() << "status: crawl right";
             MainWindow::uiSerialHandler.sendCmdViaSerialPort("kcrR");
             break;
 
         case STATUS_RUN_FORWARD:
-            qDebug() << "status: run forward";
+//            qDebug() << "status: run forward";
             MainWindow::uiSerialHandler.sendCmdViaSerialPort("ktrF");
             break;
 
         case STATUS_RUN_BACKWARD:
-            qDebug() << "status: backward";
+//            qDebug() << "status: backward";
             MainWindow::uiSerialHandler.sendCmdViaSerialPort("kbk");
             break;
 
         case STATUS_RUN_LEFT:
-            qDebug() << "status: run left";
+//            qDebug() << "status: run left";
             MainWindow::uiSerialHandler.sendCmdViaSerialPort("ktrL");
             break;
 
         case STATUS_RUN_RIGHT:
-            qDebug() << "status: run right";
+//            qDebug() << "status: run right";
             MainWindow::uiSerialHandler.sendCmdViaSerialPort("ktrR");
             break;
 
         case STATUS_NORMAL_FORWARD:
-            qDebug() << "status: forward";
+//            qDebug() << "status: forward";
             MainWindow::uiSerialHandler.sendCmdViaSerialPort("kwkF");
             break;
 
         case STATUS_NORMAL_BACKWARD:
-            qDebug() << "status: backward";
+//            qDebug() << "status: backward";
             MainWindow::uiSerialHandler.sendCmdViaSerialPort("kbk");
             break;
 
         case STATUS_NORMAL_LEFT:
-            qDebug() << "status: left";
+//            qDebug() << "status: left";
             MainWindow::uiSerialHandler.sendCmdViaSerialPort("kwkL");
             break;
 
         case STATUS_NORMAL_RIGHT:
-            qDebug() << "status: right";
+//            qDebug() << "status: right";
             MainWindow::uiSerialHandler.sendCmdViaSerialPort("kwkR");
             break;
 
         default:
-            qDebug() << "status: balance";
+//            qDebug() << "status: balance";
             MainWindow::uiSerialHandler.sendCmdViaSerialPort("kbalance");
             break;
         }
@@ -205,16 +205,30 @@ void UiMotionControl::usbDevicesEventCheck() {
 void UiMotionControl::startKeyListen() {
     // connect timer signal/slot
     connect(&timer, SIGNAL(timeout()), this, SLOT(usbDevicesEventCheck()));
+    
+    // start timer
+    if (!timer.isActive()) {
+        timer.start(REPEAT_MILLISECONDS); 
+    }
+
+    // debug message
     qDebug() << "Start motion control...";
-    if (!timer.isActive()) { timer.start(REPEAT_MILLISECONDS); }
 }
 
 
 void UiMotionControl::stopKeyListen() {
-    if (timer.isActive()) { timer.stop(); }
-    qDebug() << "Stop motion control...";
+    
+    // stop timer
+    if (timer.isActive()) { 
+        timer.stop(); 
+    }
+
+    // disconnect
     disconnect(&timer, SIGNAL(timeout()), this, SLOT(usbDevicesEventCheck()));
-}
+
+    // debug message
+    qDebug() << "Stop motion control...";
+ }
 
 
 bool UiMotionControl::isKeyListeningOn() {
