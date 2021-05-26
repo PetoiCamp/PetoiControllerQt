@@ -100,14 +100,14 @@ void MainWindow::switchCalibration() {
         ui->buttonIncreaseAngle->setEnabled(true);
         ui->buttonDecreaseAngle->setEnabled(true);
         ui->buttonSaveCalibration->setEnabled(true);
-        ui->buttonCleanCalibration->setEnabled(true);
+//        ui->buttonCleanCalibration->setEnabled(true);
         ui->boxSteering->setEnabled(true);
     } else {
         ui->buttonCalibration->setEnabled(true);
         ui->buttonIncreaseAngle->setEnabled(false);
         ui->buttonDecreaseAngle->setEnabled(false);
         ui->buttonSaveCalibration->setEnabled(false);
-        ui->buttonCleanCalibration->setEnabled(false);
+//        ui->buttonCleanCalibration->setEnabled(false);
         ui->boxSteering->setEnabled(false);
     }
 }
