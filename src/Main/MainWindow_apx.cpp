@@ -17,7 +17,7 @@ void MainWindow::bindQtSlots() {
     connect(ui->buttonIncreaseAngle, SIGNAL(clicked(bool)), this, SLOT(onIncreaseCalib()));
     connect(ui->buttonDecreaseAngle, SIGNAL(clicked(bool)), this, SLOT(onDecreaseCalib()));
     connect(ui->buttonSaveCalibration, SIGNAL(clicked(bool)), this, SLOT(onSaveCalib()));
-    connect(ui->buttonCleanCalibration, SIGNAL(clicked(bool)), this, SLOT(onClearCalib()));
+//    connect(ui->buttonCleanCalibration, SIGNAL(clicked(bool)), this, SLOT(onClearCalib()));
 
     /// terminal ///
     connect(ui->buttonSendCmd, SIGNAL(clicked(bool)), this, SLOT(onTerminalCmd()));
@@ -52,7 +52,7 @@ void MainWindow::unbindQtSlots() {
     disconnect(ui->buttonIncreaseAngle, SIGNAL(clicked(bool)), this, SLOT(onIncreaseCalib()));
     disconnect(ui->buttonDecreaseAngle, SIGNAL(clicked(bool)), this, SLOT(onDecreaseCalib()));
     disconnect(ui->buttonSaveCalibration, SIGNAL(clicked(bool)), this, SLOT(onSaveCalib()));
-    disconnect(ui->buttonCleanCalibration, SIGNAL(clicked(bool)), this, SLOT(onClearCalib()));
+//    disconnect(ui->buttonCleanCalibration, SIGNAL(clicked(bool)), this, SLOT(onClearCalib()));
 
     /// terminal ///
     disconnect(ui->buttonSendCmd, SIGNAL(clicked(bool)), this, SLOT(onTerminalCmd()));
