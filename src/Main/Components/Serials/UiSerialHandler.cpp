@@ -5,6 +5,7 @@
 #include <QString>
 #include <QSerialPortInfo>
 #include <QSerialPort>
+#include <QMessageBox>
 
 
 UiSerialHandler::UiSerialHandler(QObject* parent):
@@ -144,7 +145,11 @@ void UiSerialHandler::onUpdateTextview() {
 
     // if calibration command sent
     if (isCalibrated) {
-        MainWindow::uiCalibration.updateCalibrationInfo(feedback);
+       if (MainWindow::uiCalibration.updateCalibrationInfo(feedback)) {
+            qDebug() << "calibration load information success";
+       } else {
+            qDebug() << "calibration load information failed";
+       }
     }
 
     // synchronize the others

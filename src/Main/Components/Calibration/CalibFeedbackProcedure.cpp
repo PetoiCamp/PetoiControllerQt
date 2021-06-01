@@ -46,3 +46,13 @@ QString petoi::preprocessCalibString(QString calibString) {
 
     return newCalibString;
 };
+
+
+
+bool petoi::isValidAngleDegree(QString angle) {
+    QString pattern("^([-|+]?\\d+)$");
+    QRegularExpression reg(pattern);
+
+    QRegularExpressionMatch match = reg.match(angle);
+    return match.hasMatch();
+}
