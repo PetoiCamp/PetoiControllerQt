@@ -80,14 +80,35 @@ void UiCalibrationCheck::clearCalibAngle(int pos) {
 }
 
 
-void UiCalibrationCheck::updateCalibrationInfo(QString feedback) {
+bool UiCalibrationCheck::updateCalibrationInfo(QString feedback) {
     feedback = petoi::preprocessCalibString(feedback);
     feedback = petoi::distillValidCalibString(feedback);
+
+    qDebug() << "check cal:" << feedback;
 
     if (feedback != "") { // found valid data
 
         // split the string into lists
         auto servos_list = feedback.split(",");
+
+        // check digital strings length
+        if (servos_list.count() < 16) {
+            qDebug() << "Error calibration list:"
+                    << feedback;
+            return false;
+        }
+
+        // input value check
+        for (int i = 0; i < 16; i++) {
+
+            qDebug() << "check value:" << servos_list[i];
+            if (!petoi::isValidAngleDegree(servos_list[i])) {
+                qDebug() << "failed";
+                return false;
+            }
+        }
+
+        //TODO
         servos[0].second = servos_list[0].toInt();
 
         servos[1].second = servos_list[8].toInt();
@@ -99,7 +120,11 @@ void UiCalibrationCheck::updateCalibrationInfo(QString feedback) {
         servos[6].second = servos_list[13].toInt();
         servos[7].second = servos_list[14].toInt();
         servos[8].second = servos_list[15].toInt();
+
+        return true;
     }
+
+    return false;
 }
 
 

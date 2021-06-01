@@ -19,6 +19,14 @@ namespace petoi {
      * @return
      */
     extern QString preprocessCalibString(QString calibString);
+
+
+    /**
+     * @brief isValidAngle
+     * @param angle
+     * @return
+     */
+    extern bool isValidAngleDegree(QString angle);
 }
 
 #endif // CALIBFEEDBACKPROCEDURE_H

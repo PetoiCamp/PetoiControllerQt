@@ -63,8 +63,10 @@ public:
 
     /**
      * @brief updateCalibrationInfo
+     * @param feedback
+     * @return
      */
-    void updateCalibrationInfo(QString feedback);
+    bool updateCalibrationInfo(QString feedback);
 
     /**
      * @brief angleToZero
