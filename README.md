@@ -1,14 +1,14 @@
 # What's this?
 
-This is a serial controller for Petoi's devices such as Bittle. 
+This is a serial controller for Petoi's devices such as Bittle.
 
-This project was written with Qt5, therefore you can easily deploy it on your PC (Windows/MacOS/Linux).
+This project was written with Qt5, therefore you can easily deploy it on your PC/MacOS/Linux.
 
 # What could it do?
 
 After you build the application on your PC, you will be able to control the robot, such as calibrating the servos of Bittle, and triggering some skills, such as running, jumping, walking, etc.
 
-This project extends the functionality and user interaction of Bittle. It can also serve as a demo for developers who wants to fully explore Bittle's possibilities. 
+This project extends the functionality and user interaction of Bittle. It can also serve as a demo for developers who wants to fully explore Bittle's possibilities.
 
 # Are there any third-party libraries required?
 
@@ -21,6 +21,10 @@ https://www.qt.io/
 **Getting start with Qt**
 
 https://resources.qt.io/development-topic-getting-started-with-qt
+
+# Program Downloads
+
+Download [the latest Windows or Mac programs](/PetoiCamp/PetoiControllerQt/releases/).
 
 # Instructions on the current UI
 
@@ -36,7 +40,7 @@ You can switch to English by clicking **File/Language/English** from the menu.
 
 ## Connect to Bittle
 
-Before playing with Bittle, you need to correctly plug the Bluetooth module or USB module to the 6-pin socket on the NyBoard. The LED on the module will turn on after inserted into the 6-pin socket. 
+Before playing with Bittle, you need to correctly plug the Bluetooth module or USB module to the 6-pin socket on the NyBoard. The LED on the module will turn on after inserted into the 6-pin socket.
 
 Click the **Refresh** button, let the app search the available serial ports on your PC.
 
@@ -44,7 +48,7 @@ After 1~2 seconds, you will see a list of the available **Serial Ports**.
 
 ![Selector](./pics/Selector.png)
 
-The other configurations, such as baud rate, stop bits, data bits and parity should remain default. You don't need to modify their values. 
+The other configurations, such as baud rate, stop bits, data bits and parity should remain default. You don't need to modify their values.
 
 ### **For MacOS user:**
 
@@ -58,7 +62,7 @@ When Bittle starts up, the LED on the module should blink, meaning it's ready fo
 
 ### **For Windows user:**
 
-Whether you use the USB module or the Bluetooth module, the items in the "Port Number" list are named as "COM#". You have to test each COM port from the list and click **Connect** to validate. You can also unplug the module and check which port disappeared. Then you will know the corresponding COM number. 
+Whether you use the USB module or the Bluetooth module, the items in the "Port Number" list are named as "COM#". You have to test each COM port from the list and click **Connect** to validate. You can also unplug the module and check which port disappeared. Then you will know the corresponding COM number.
 
 After connecting to the port, the main program will reset and play the booting music. Some message will be printed in the textbox, meaning you have successly connected to Bittle.
 
@@ -115,4 +119,4 @@ crawl right: ctrl + d
 
 Too slow?
 
-Click the **Gyro off** button, and see what happens? 
+Click the **Gyro off** button, and see what happens?
