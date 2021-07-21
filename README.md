@@ -24,7 +24,7 @@ https://resources.qt.io/development-topic-getting-started-with-qt
 
 # Program Downloads
 
-Download [the latest Windows or Mac programs](/PetoiCamp/PetoiControllerQt/releases/).
+Download [the latest Windows or Mac programs](https://github.com/PetoiCamp/PetoiControllerQt/releases/).
 
 # Instructions on the current UI
 
